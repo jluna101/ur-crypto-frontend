@@ -5,10 +5,9 @@ function CryptoPrices(props) {
     const [cryptoData, setCryptoData] = useState([])
 
     function integer(num){
-        return parseInt((num).toFixed(0)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
-    }
-  
+        return parseInt((num).toFixed(0)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
 
+  
     useEffect(() => {
         fetch('https://api.coinstats.app/public/v1/coins')
         .then((res) => res.json())
@@ -36,17 +35,17 @@ function CryptoPrices(props) {
                     </tr>
                 </thead>
                 <tbody>
-                    {cryptoData.slice(0,10).map((element, index) => (
+                    {cryptoData.slice(0,30).map((element, index) => (
                         <tr key={element.volume}>
                             <td>{element.rank}</td>
                             <td><img src={element.icon} alt={element.id}/></td>
                             <td>{element.symbol}</td>
-                            <td>{integer(element.price)}</td>
-                            <td>{integer(element.priceChange1h)}</td>
-                            <td>{integer(element.priceChange1d)}</td>
-                            <td>{integer(element.priceChange1w)}</td>
-                            <td>{integer(element.marketCap)}</td>
-                            <td>{integer(element.volume)}</td>
+                            <td>${integer(element.price)}</td>
+                            <td>{element.priceChange1h}%</td>
+                            <td>{element.priceChange1d}%</td>
+                            <td>{element.priceChange1w}%</td>
+                            <td>${integer(element.marketCap)}</td>
+                            <td>${integer(element.volume)}</td>
                         </tr>
                     ))}
                 </tbody>
