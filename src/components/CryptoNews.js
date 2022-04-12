@@ -1,5 +1,6 @@
 import React from 'react';
 import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 
 function CryptoNews(props) {
     const [newsData, setNewsData] = useState([])
@@ -24,11 +25,12 @@ function CryptoNews(props) {
             <h1 className="section-title">Latest Crypto News</h1>
             {newsData.slice(0,15).map((element, index) => (
                         <div key={element.id} className="w-50 p-3" >
-                            <img className="img-fluid" src={element.image} alt={element.headline} />
-                            <p>{element.source}</p>
-                            <h2>{element.headline}</h2>
-                            <p>{datetime((element.datetime)+'100')}</p>
-
+                            <a href={element.url} target="_blank" rel="noreferrer noopener" >
+                                <img className="img-fluid" src={element.image} alt={element.headline} />
+                                <p>{element.source}</p>
+                                <h2>{element.headline}</h2>
+                                <p>{datetime((element.datetime)+'100')}</p>
+                            </a>
                         </div>
                     ))}
         </div>
