@@ -4,6 +4,11 @@ import { useEffect, useState } from 'react';
 function CryptoPrices(props) {
     const [cryptoData, setCryptoData] = useState([])
 
+    function integer(num){
+        return parseInt((num).toFixed(0)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+    }
+  
+
     useEffect(() => {
         fetch('https://api.coinstats.app/public/v1/coins')
         .then((res) => res.json())
@@ -13,34 +18,36 @@ function CryptoPrices(props) {
 
 
     return (
-        <div>
-            <h1>Cryptocurrency Prices</h1>
+        <div className="table-responsive">
+            {/* <h1>Cryptocurrency Prices</h1> */}
 
-            <table>
+            <table className="table tablie-light table-hover">
                 <thead>
                     <tr>
+                        <th>#</th>
                         <th className="opacity-0">.</th>
-                        <th>Coin</th>&nbsp;
-                        <th>Price</th>&nbsp;
-                        <th>1h</th>&nbsp;
-                        <th>24hr</th>&nbsp;
-                        <th>7d</th>&nbsp;
-                        <th>Market Cap</th>&nbsp;
+                        <th>Coin</th>
+                        <th>Price</th>
+                        <th>1h</th>
+                        <th>24hr</th>
+                        <th>7d</th>
+                        <th>Market Cap</th>
                         <th>24h Volume</th>
                     </tr>
                 </thead>
                 <tbody>
                     {cryptoData.slice(0,10).map((element, index) => (
-                    <tr>
-                        <td><img  className="w-50 p-3" src={element.icon} alt="" /></td>
-                        <td>{element.symbol}</td>&nbsp;
-                        <td>{element.price}</td>&nbsp;
-                        <td>{element.priceChange1h}</td>&nbsp;
-                        <td>{element.priceChange1d}</td>&nbsp;
-                        <td>{element.priceChange1w}</td>&nbsp;
-                        <td>{element.marketCap}</td>&nbsp;
-                        <td>{element.volume}</td>&nbsp;
-                    </tr>
+                        <tr key={element.volume}>
+                            <td>{element.rank}</td>
+                            <td><img src={element.icon} alt={element.id}/></td>
+                            <td>{element.symbol}</td>
+                            <td>{integer(element.price)}</td>
+                            <td>{integer(element.priceChange1h)}</td>
+                            <td>{integer(element.priceChange1d)}</td>
+                            <td>{integer(element.priceChange1w)}</td>
+                            <td>{integer(element.marketCap)}</td>
+                            <td>{integer(element.volume)}</td>
+                        </tr>
                     ))}
                 </tbody>
             </table>
