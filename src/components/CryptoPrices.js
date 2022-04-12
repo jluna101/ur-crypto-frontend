@@ -1,25 +1,13 @@
-import React from 'react';
-import { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 
 function CryptoPrices(props) {
-    const [cryptoData, setCryptoData] = useState([])
-
+    const data = props.coinData;
+    const [cryptoData, setCryptoData] = useState(data)
     function integer(num){
         return parseInt((num).toFixed(0)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
-
-  
-    useEffect(() => {
-        fetch('https://api.coinstats.app/public/v1/coins')
-        .then((res) => res.json())
-        .then(data => setCryptoData(data.coins))
-        .catch(console.error);
-        }, []);
-
-
     return (
         <div className="table-responsive">
-            {/* <h1>Cryptocurrency Prices</h1> */}
-
+            <h1 className="text-center">Cryptocurrency Prices</h1>
             <table className="table tablie-light table-hover">
                 <thead>
                     <tr>
@@ -50,15 +38,6 @@ function CryptoPrices(props) {
                     ))}
                 </tbody>
             </table>
-
-                    
-
-
-
-
-
-
-
         </div>
     );
 }

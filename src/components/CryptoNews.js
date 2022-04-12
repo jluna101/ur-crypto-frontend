@@ -1,24 +1,10 @@
-import React from 'react';
-import { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState } from 'react';
 
 function CryptoNews(props) {
-    const [newsData, setNewsData] = useState([])
-    const newsKey =process.env.REACT_APP_NEWS_KEY;
-
-    useEffect(() => {
-        const url = `https://finnhub.io/api/v1/news?category=crypto&token=${newsKey}`;
-
-        fetch(url)
-        .then((res) => res.json())
-        .then(data => setNewsData(data))
-        .catch(console.error);
-        }, []);
-
+    const [newsData, setNewsData] = useState(props.data)
         // converts unix timestamp to date
         function datetime(num){
             return new Intl.DateTimeFormat('en-US', { year: 'numeric', month: '2-digit', day: '2-digit'}).format(num)}
-
     return (
         <section className="section gray-bg" id="blog">
         <div className="row justify-content-center">

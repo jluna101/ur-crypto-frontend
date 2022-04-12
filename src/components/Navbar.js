@@ -5,7 +5,7 @@ function Navbar(props) {
     return (
         <nav className="navbar navbar-dark bg-dark">
             <div className="container-fluid">
-            <Link to='/' className="text-decoration-none"><a className="navbar-brand" href="/">urCrypto</a></Link>
+            <Link to='/' className="text-decoration-none"><a className="navbar-brand">urCrypto</a></Link>
             <Link to='/prices' className="text-decoration-none"><a className="navbar-brand " >Prices</a></Link>
             <Link to='/news' className="text-decoration-none"><a className="navbar-brand">News</a></Link>
             <Link to='/transactions' className="text-decoration-none"><a className="navbar-brand">Transactions</a></Link>
