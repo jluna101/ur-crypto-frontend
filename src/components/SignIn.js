@@ -19,13 +19,14 @@ function SignIn(props) {
 
     console.log(formData)
     return (
-        <div>
+        <div className='w-75 p-3'>
             <h2>Login</h2>
             <Form>
                 <Form.Group controlId='email'>
                     <Form.Label>Email</Form.Label>
                     <Form.Control
                     required
+                    
                     type='email'
                     value={formData.email}
                     onChange ={handleChange}
