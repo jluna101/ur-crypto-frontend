@@ -10,11 +10,13 @@ import Homepage from './components/Homepage';
 import SignIn from './components/SignIn';
 import SignUp from './components/SignUp';
 import { useEffect, useState } from 'react';
+import API_URL from './apiConfig';
 
 function App() {
   const [cryptoData, setCryptoData] = useState([])
   const [newsData, setNewsData] = useState([])
   const newsKey =process.env.REACT_APP_NEWS_KEY;
+
     //API for CryptoNews
   useEffect(() => {
     const url = `https://finnhub.io/api/v1/news?category=crypto&token=${newsKey}`;

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 
 function Header(props) {
   const data = props.coinData;
@@ -8,7 +8,7 @@ function Header(props) {
     <div>
         {(data.length > 1)? 
         <nav className="navbar py-0">
-          <ul className="nav-item m-2">BTC PRICE: ${integer(data[0].price)}</ul>
+          <ul className="nav-item m-2">BTC Price: ${integer(data[0].price)}</ul>
           <ul className="nav-item m-2">ETH Price: ${integer(data[1].price)}</ul>
           <ul className="nav-item m-2">Solana Price: ${integer(data[6].price)}</ul>
           <ul className="nav-item m-2">ETC Price: ${integer(data[27].price)}</ul>
