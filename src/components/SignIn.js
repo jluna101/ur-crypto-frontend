@@ -1,23 +1,22 @@
 import React, { useState } from 'react';
 import API_URL from '../apiConfig';
 import { Form, Button, Alert } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
-function SignIn(props) {
+const SignIn = ({props}) => {
     const initialData = {
         email: '',
         password: '',
     }
     const [formData, setFormData] = useState(initialData);
     const [error, setError] = useState(false);
-    
+    const navigate = useNavigate();
     const handleChange = (event) => {
         setFormData((prevState) => {
             return { ...prevState, [event.target.id]: event.target.value };
         })
     }
 
-    console.log(formData)
     return (
         <div className='w-75 p-3'>
             <h2>Login</h2>
@@ -46,7 +45,7 @@ function SignIn(props) {
             </Form>
             {error && (
 				<Alert variant='warning' className='mt-4'>
-					No user found with the credentials entered. Please try again or <Link to='/signup'>sign up</Link> for an account.
+					No user found with the credentials entered. Please try again or click <Link to='/signup'>sign up</Link> for an account.
 				</Alert>
 			)}
         </div>

@@ -1,23 +1,27 @@
 import React, { useState } from 'react';
 import { Form, Button, Alert } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import API_URL from '../apiConfig';
 
-function SignUp(props) {
+const SignUp = () => {
     const initialData = {
         email: '',
         username: '',
         password: '',
         re_password: '',
     }
+    const navigate = useNavigate();
     const [error, setError] = useState(false)
     const [success, setSuccess] = useState(false)
     const [formData, setFormData] = useState(initialData)
+    const [signupErrors, setSignupErrors] = useState([]);
+
     const handleChange = (event) => {
         setFormData((prevState) => {
             return { ...prevState, [event.target.id]: event.target.value };
         })
     }
+    // verifies the password and re-entered password match 
     const handlePassMatch = (event) => {
         if (formData.password !== formData.re_password){
             setError(true)
@@ -27,10 +31,36 @@ function SignUp(props) {
     }
     const handleSignup = async (event) => {
 		event.preventDefault();
+        console.log(formData)
+        try {
+                const response = await fetch(API_URL + 'users/', {
+                    method: 'POST', 
+                    body: JSON.stringify(formData),
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                });
+                if (response.status === 201){
+                        setSuccess(true);
+                } else if (response.status === 400) {
+                    const data = await response.json();
+                    console.log(data)
+                    if (data.username){
+                        setSignupErrors(data.username); 
+                    }
+                    if (data.email){
+                        setSignupErrors(data.email); 
+                    }
+                    if (data.password){
+                        setSignupErrors(data.password); 
+                    }
+                }
+                console.log(response);
+        } catch (error) { 
+            console.log(error)
+        }
 		return;
 	};
-
-    // console.log(formData)
 
     return (
         <div className='w-75 p-3'>
@@ -85,11 +115,13 @@ function SignUp(props) {
                 {error && <Alert variant='danger'>Passwords must match!</Alert>}
 				{success && (
 					<Alert variant='success' className='mt-5'>
-						User successfully created! You will be redirected to log in. If you
-						are not automatically redirected, please click{' '}
+						User successfully created! You'll be redirected to log in. If you're not automatically redirected, please click{' '} 
 						{<Link to='/signin'>here</Link>}.
 					</Alert>
 				)}
+                {!!signupErrors.length && signupErrors.map((error) => {
+                    return <Alert key={error} variant='danger'>{error}</Alert>
+                })} 
             </Form>
 
         </div>
