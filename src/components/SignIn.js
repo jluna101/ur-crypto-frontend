@@ -3,7 +3,7 @@ import API_URL from '../apiConfig';
 import { Form, Button, Alert } from 'react-bootstrap';
 import { Link, useNavigate } from 'react-router-dom';
 
-const SignIn = ({props}) => {
+const SignIn = ({handleSetSignedIn}) => {
     const initialData = {
         email: '',
         password: '',
@@ -31,7 +31,8 @@ const SignIn = ({props}) => {
             console.log(response)
             if (response.status === 200){
                 const data = await response.json()
-                console.log(data.auth_token);
+                handleSetSignedIn(data.auth_token)
+                navigate('/homepage')
             } else if (response.status === 400){
                 setError(true);
             }

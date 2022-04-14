@@ -16,6 +16,11 @@ function App() {
   const [cryptoData, setCryptoData] = useState([])
   const [newsData, setNewsData] = useState([])
   const newsKey =process.env.REACT_APP_NEWS_KEY;
+  const [signedIn, setSignedIn] = useState(false)
+  const handleSetSignedIn = (token) => {
+    localStorage.setItem('token', token);
+    setSignedIn(true);
+  };
 
     //API for CryptoNews
   useEffect(() => {
@@ -33,16 +38,25 @@ function App() {
       .catch(console.error);
       }, []);
 
+  // checking if there's a token in local storage
+  useEffect(() => {
+    if (localStorage.getItem('token')){
+      setLoggedIn(true)
+    }
+  })
+
+
+
   return (
     <div>
       <Header coinData={cryptoData}/>
       <Navbar/>
       <Routes>
-        <Route path='/' element={<Homepage />}/>
+        <Route path='/homepage'element={<Homepage />}/>
         <Route path='/prices'element={<CryptoPrices coinData={cryptoData}/>}/>
         <Route path='/news' element={<CryptoNews data={newsData}/>}/> 
         <Route path='/transactions' element={<CoinbaseTransactions/>}/> 
-        <Route path='/signin' element={<SignIn/>}/>
+        <Route path='/signin' element={<SignIn handleSetSignedIn={handleSetSignedIn}/>}/>
         <Route path='/signup' element={<SignUp/>}/>
       </Routes>
       <Footer/>

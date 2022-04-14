@@ -85,7 +85,6 @@ const SignUp = () => {
                     <Form.Label>Email</Form.Label>
                     <Form.Control
                         required
-                        autoFocus
                         type='email'
                         name='email'
                         value={formData.email}
@@ -96,7 +95,6 @@ const SignUp = () => {
                     <Form.Label>Password</Form.Label>
                     <Form.Control
                         required
-                        autoFocus
                         type='password'
                         name='password'
                         value={formData.password}
@@ -107,7 +105,6 @@ const SignUp = () => {
                     <Form.Label>Re-enter Password</Form.Label>
                     <Form.Control
                         required
-                        autoFocus
                         type='password'
                         name='re_password'
                         value={formData.re_password}
