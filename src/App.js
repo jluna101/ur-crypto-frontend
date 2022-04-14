@@ -5,7 +5,7 @@ import Footer from './components/Footer';
 import Header from './components/Header';
 import Navbar from './components/Navbar';
 import CoinbaseTransactions from './components/CoinbaseTransactions';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'; 
+import { BrowserRouter as Router, Routes, Route, useNavigate } from 'react-router-dom'; 
 import Homepage from './components/Homepage';
 import SignIn from './components/SignIn';
 import SignUp from './components/SignUp';
@@ -21,6 +21,28 @@ function App() {
     localStorage.setItem('token', token);
     setSignedIn(true);
   };
+  let navigate = useNavigate();
+    // handles signing out
+  const handleSignout = async (event) => {
+    setSignedIn(false);
+    try{
+      const response = await fetch(API_URL + 'token/logout/', {
+        method: 'POST',
+        headers: {
+          Authorization: `Token ${localStorage.getItem('token')}`,
+        },
+      })
+      if (response.status === 204) {
+        localStorage.removeItem('token');
+        alert('You have been successfully logged out');
+        setSignedIn(false)
+        navigate('/')
+      }
+    } catch (error){
+      console.log(error)
+    }
+    
+  }
 
     //API for CryptoNews
   useEffect(() => {
@@ -46,13 +68,12 @@ function App() {
   })
 
 
-
   return (
     <div>
       <Header coinData={cryptoData}/>
-      <Navbar signedIn={signedIn}/>
+      <Navbar signedIn={signedIn} handleSignout={handleSignout} />
       <Routes>
-        <Route path='/homepage'element={<Homepage signedIn={signedIn}/>}/>
+        <Route path='/'element={<Homepage signedIn={signedIn}/>}/>
         <Route path='/prices'element={<CryptoPrices signedIn={signedIn} coinData={cryptoData}/>}/>
         <Route path='/news' element={<CryptoNews signedIn={signedIn} data={newsData}/>}/> 
         <Route path='/transactions' element={<CoinbaseTransactions signedIn={signedIn}/>}/> 

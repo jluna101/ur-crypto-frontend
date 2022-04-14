@@ -1,8 +1,8 @@
 import React from 'react';
+import { Nav } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
-function Navbar({signedIn}) {
-// const Navbar = ({signedIn}) => {
+function Navbar({signedIn, handleSignout}) {
     return (
         <nav className="navbar navbar-dark bg-dark">
             <div className="container-fluid">
@@ -12,7 +12,7 @@ function Navbar({signedIn}) {
             <Link to='/transactions' className="text-decoration-none"><a className="navbar-brand">Transactions</a></Link>
 
             {(signedIn === true) ? (
-                <></>
+                <><Nav.Link className="text-decoration-none" onClick={handleSignout}>Signout</Nav.Link></>
             ):( 
             <>
             <Link to='/signin' className="text-decoration-none"><a className="navbar-brand">Sign-in</a></Link>

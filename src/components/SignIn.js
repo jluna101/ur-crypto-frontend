@@ -32,7 +32,7 @@ const SignIn = ({handleSetSignedIn}) => {
             if (response.status === 200){
                 const data = await response.json()
                 handleSetSignedIn(data.auth_token)
-                navigate('/homepage')
+                navigate('/prices')
             } else if (response.status === 400){
                 setError(true);
             }
