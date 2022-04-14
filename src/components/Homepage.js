@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-function Homepage(props) {
+function Homepage({signedIn}) {
     return (
         <div>
             <h1>Welcome to urCrypto!</h1>

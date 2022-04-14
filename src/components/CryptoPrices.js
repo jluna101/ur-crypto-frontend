@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-function CryptoPrices(props) {
+function CryptoPrices(props, {signedIn}) {
     const data = props.coinData;
     const [cryptoData, setCryptoData] = useState(data)
     function integer(num){

@@ -41,7 +41,7 @@ function App() {
   // checking if there's a token in local storage
   useEffect(() => {
     if (localStorage.getItem('token')){
-      setLoggedIn(true)
+      setSignedIn(true)
     }
   })
 
@@ -49,13 +49,13 @@ function App() {
 
   return (
     <div>
-      <Header coinData={cryptoData}/>
+      <Header signedIn={signedIn} coinData={cryptoData}/>
       <Navbar/>
       <Routes>
-        <Route path='/homepage'element={<Homepage />}/>
-        <Route path='/prices'element={<CryptoPrices coinData={cryptoData}/>}/>
-        <Route path='/news' element={<CryptoNews data={newsData}/>}/> 
-        <Route path='/transactions' element={<CoinbaseTransactions/>}/> 
+        <Route path='/homepage'element={<Homepage signedIn={signedIn}/>}/>
+        <Route path='/prices'element={<CryptoPrices signedIn={signedIn} coinData={cryptoData}/>}/>
+        <Route path='/news' element={<CryptoNews signedIn={signedIn} data={newsData}/>}/> 
+        <Route path='/transactions' element={<CoinbaseTransactions signedIn={signedIn}/>}/> 
         <Route path='/signin' element={<SignIn handleSetSignedIn={handleSetSignedIn}/>}/>
         <Route path='/signup' element={<SignUp/>}/>
       </Routes>

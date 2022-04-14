@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-function CryptoNews(props) {
+function CryptoNews(props, {signedIn}) {
     const [newsData, setNewsData] = useState(props.data)
         // converts unix timestamp to date
         function datetime(num){

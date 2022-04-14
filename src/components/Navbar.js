@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-function Navbar(props) {
+function Navbar({signedIn}) {
     return (
         <nav className="navbar navbar-dark bg-dark">
             <div className="container-fluid">

@@ -1,6 +1,6 @@
 import React from "react";
 
-function Header(props) {
+function Header(props, {signedIn}) {
   const data = props.coinData;
     function integer(num){
         return parseInt((num).toFixed(0)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}   
