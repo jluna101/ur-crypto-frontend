@@ -17,10 +17,34 @@ const SignIn = ({props}) => {
         })
     }
 
+    const handleSignin = async (event) => {
+        event.preventDefault();
+        setError(false)
+        try {
+            const response = await fetch(API_URL + 'token/login/', {
+                method: 'POST',
+                body: JSON.stringify(formData),
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+            })
+            console.log(response)
+            if (response.status === 200){
+                const data = await response.json()
+                console.log(data.auth_token);
+            } else if (response.status === 400){
+                setError(true);
+            }
+
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
     return (
         <div className='w-75 p-3'>
             <h2>Login</h2>
-            <Form>
+            <Form onSubmit={handleSignin}>
                 <Form.Group controlId='email'>
                     <Form.Label>Email</Form.Label>
                     <Form.Control
