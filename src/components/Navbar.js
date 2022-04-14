@@ -1,8 +1,11 @@
-import React from 'react';
-import { Nav } from 'react-bootstrap';
+import React, { useEffect } from 'react';
+import { Nav, NavItem } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
-function Navbar({signedIn, handleSignout}) {
+function Navbar({signedIn, handleSignout, userInfo}) {
+    function uppercaseFirstLetter(string) {
+        return string.charAt(0).toUpperCase() + string.slice(1);
+    }
     return (
         <nav className="navbar navbar-dark bg-dark">
             <div className="container-fluid">
@@ -10,7 +13,11 @@ function Navbar({signedIn, handleSignout}) {
             <Link to='/prices' className="text-decoration-none"><a className="navbar-brand " >Prices</a></Link>
             <Link to='/news' className="text-decoration-none"><a className="navbar-brand">News</a></Link>
             <Link to='/transactions' className="text-decoration-none"><a className="navbar-brand">Transactions</a></Link>
-
+            {userInfo !== null ? (
+							<NavItem className="navbar-brand">
+								Welcome {uppercaseFirstLetter(userInfo.username)}!
+							</NavItem>
+						): <></>}
             {(signedIn === true) ? (
                 <><Nav.Link className="text-decoration-none" onClick={handleSignout}>Signout</Nav.Link></>
             ):( 
@@ -20,10 +27,10 @@ function Navbar({signedIn, handleSignout}) {
             </>
             )}
 
-            <form className="d-flex">
+            {/* <form className="d-flex">
                 <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
                 <button className="navbar-brand btn btn-outline-secondary" type="submit">Search</button>
-            </form>
+            </form> */}
             </div>
         </nav>
     );

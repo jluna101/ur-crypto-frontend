@@ -20,9 +20,12 @@ function App() {
   const handleSetSignedIn = (token) => {
     localStorage.setItem('token', token);
     setSignedIn(true);
+    getUserInfo();
   };
   let navigate = useNavigate();
-    // handles signing out
+  const [userInfo, setUserInfo] = useState(null);
+
+  // handles signing out
   const handleSignout = async (event) => {
     setSignedIn(false);
     try{
@@ -33,9 +36,11 @@ function App() {
         },
       })
       if (response.status === 204) {
+        setUserInfo(null)
         localStorage.removeItem('token');
-        alert('You have been successfully logged out');
         setSignedIn(false)
+        alert('You have been successfully logged out');
+        
         navigate('/')
       }
     } catch (error){
@@ -64,14 +69,30 @@ function App() {
   useEffect(() => {
     if (localStorage.getItem('token')){
       setSignedIn(true)
+      // getUserInfo();
     }
-  })
+  }, []);
 
-
+  const getUserInfo = async () => {
+    try {
+      const response = await fetch(API_URL + 'users/me/', {
+        headers: {
+          Authorization: `Token ${localStorage.getItem('token')}`,
+        },
+      })
+      if (response.status === 200){
+        const data = await response.json();
+        setUserInfo(data);
+        console.log('user data set')
+      }
+    } catch (error) {
+      console.log(error)
+    }
+  }
   return (
     <div>
       <Header coinData={cryptoData}/>
-      <Navbar signedIn={signedIn} handleSignout={handleSignout} />
+      <Navbar signedIn={signedIn} userInfo={userInfo} handleSignout={handleSignout}/>
       <Routes>
         <Route path='/'element={<Homepage signedIn={signedIn}/>}/>
         <Route path='/prices'element={<CryptoPrices signedIn={signedIn} coinData={cryptoData}/>}/>

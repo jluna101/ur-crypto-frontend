@@ -3,7 +3,7 @@ import API_URL from '../apiConfig';
 import { Form, Button, Alert } from 'react-bootstrap';
 import { Link, useNavigate } from 'react-router-dom';
 
-const SignIn = ({handleSetSignedIn}) => {
+const SignIn = ({ handleSetSignedIn }) => {
     const initialData = {
         email: '',
         password: '',
