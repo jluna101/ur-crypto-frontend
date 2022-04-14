@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 function Navbar({signedIn}) {
+// const Navbar = ({signedIn}) => {
     return (
         <nav className="navbar navbar-dark bg-dark">
             <div className="container-fluid">
@@ -9,8 +10,16 @@ function Navbar({signedIn}) {
             <Link to='/prices' className="text-decoration-none"><a className="navbar-brand " >Prices</a></Link>
             <Link to='/news' className="text-decoration-none"><a className="navbar-brand">News</a></Link>
             <Link to='/transactions' className="text-decoration-none"><a className="navbar-brand">Transactions</a></Link>
+
+            {(signedIn === true) ? (
+                <></>
+            ):( 
+            <>
             <Link to='/signin' className="text-decoration-none"><a className="navbar-brand">Sign-in</a></Link>
             <Link to='/signup' className="text-decoration-none"><a className="navbar-brand">Sign-up</a></Link>
+            </>
+            )}
+
             <form className="d-flex">
                 <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
                 <button className="navbar-brand btn btn-outline-secondary" type="submit">Search</button>

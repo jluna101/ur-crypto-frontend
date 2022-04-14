@@ -49,8 +49,8 @@ function App() {
 
   return (
     <div>
-      <Header signedIn={signedIn} coinData={cryptoData}/>
-      <Navbar/>
+      <Header coinData={cryptoData}/>
+      <Navbar signedIn={signedIn}/>
       <Routes>
         <Route path='/homepage'element={<Homepage signedIn={signedIn}/>}/>
         <Route path='/prices'element={<CryptoPrices signedIn={signedIn} coinData={cryptoData}/>}/>
