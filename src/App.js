@@ -11,6 +11,7 @@ import SignIn from './components/SignIn';
 import SignUp from './components/SignUp';
 import { useEffect, useState } from 'react';
 import API_URL from './apiConfig';
+// import { Line } from 'react-chartjs-2';
 
 function App() {
   const [cryptoData, setCryptoData] = useState([])
@@ -69,7 +70,6 @@ function App() {
   useEffect(() => {
     if (localStorage.getItem('token')){
       setSignedIn(true)
-      // getUserInfo();
     }
   }, []);
 
@@ -89,6 +89,20 @@ function App() {
       console.log(error)
     }
   }
+  // // TESTING FOR COINBASE API 
+  // const connectCB = async () => {
+  //   try {
+  //     const response = await fetch(`https://coinbase.com/oauth/authorize?resoinse_type=code&client_id=${process.env.COINBASE_CLIENT_ID}`)
+  //     console.log(response)
+  //   } catch (error) {
+  //     console.log(error)
+  //   }
+  // }
+
+
+
+
+
   return (
     <div>
       <Header coinData={cryptoData}/>

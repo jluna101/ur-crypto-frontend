@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
+import { Doughnut } from 'react-chartjs-2';
 
 function CryptoPrices(props, {signedIn}) {
-    const data = props.coinData;
-    const [cryptoData, setCryptoData] = useState(data)
+    const coinstat = props.coinData;
+    const [cryptoData, setCryptoData] = useState(coinstat)
     function integer(num){
         return parseInt((num).toFixed(0)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
+
     return (
         <div className="table-responsive">
             <h1 className="text-center">Cryptocurrency Prices</h1>
