@@ -10,6 +10,8 @@ import {
     Legend,
 } from 'chart.js';
 import { Bar } from 'react-chartjs-2';
+import { binanceData } from '../data/binanceData.js';
+import { coinbaseData } from '../data/coinbaseData.js';
 
 ChartJS.register(
     CategoryScale,
@@ -21,55 +23,11 @@ ChartJS.register(
 )
 
 function Homepage({signedIn}) {
-    const [coinbaseData, setcoinbaseData] = useState({
-        datasets:[],
-    })
-    const [binanceData, setBinanceData] = useState({
-        datasets:[],
-    })
+    const [newCoinbaseData, setNewCoinbaseData] = useState(coinbaseData[0])
+    const [coinbaseChartOptions, setCoinbaseChartOptions] = useState(coinbaseData[1]);
 
-    const [chartOptions, setChartOptions] = useState({});
-    // data from https://www.businessofapps.com/data/coinbase-statistics/
-    useEffect(() => {
-        setcoinbaseData({
-            labels: ['2014', '2015', '2016', '2017', '2018', '2019', '2020', '2021', '2022' ],
-            datasets: [
-                {
-                    label: 'Users',
-                    data: [1000000, 2000000, 5000000, 13000000, 22000000, 30000000, 35000000, 56000000, 89000000],
-                    borderColor: "rgb(53, 162, 235)",
-                    backgroundColor: 'rgba(53, 162, 235, 0.4',
-                },
-            ],
-        });
-        setChartOptions({
-            responsive: true,
-            plugins: {
-                legend: {
-                    position: "top"
-                },
-                title: {
-                    display: true,
-                    text: 'Coinbase Users'
-                }
-            }
-        })
-    })
-// data from https://www.businessofapps.com/data/binance-statistics/
-    useEffect(() => {
-        setBinanceData({
-            labels: ['2017', '2018', '2019', '2020', '2021'],
-            datasets: [
-                {
-                    label: 'Users',
-                    data: [1500000, 1330000, 1650000, 21500000, 28600000, 30000000],
-                    borderColor: "rgb(53, 162, 235)",
-                    backgroundColor: 'rgba(53, 162, 235, 0.4',
-                },
-            ],
-        });
-    })
-
+    const [newBinanceData, setNewBinanceData] = useState(binanceData[0])
+    const [binanceChartOptions, setBinanceChartOptions] = useState(coinbaseData[1]);
 
     return (
         <div>
@@ -86,8 +44,8 @@ function Homepage({signedIn}) {
                 </Link> 
             </div>
             <h2>Number of Crypto Users by Exchange</h2>
-            <Bar options={chartOptions} data={coinbaseData} />
-            <Bar options={chartOptions} data={binanceData} />
+            <Bar options={coinbaseChartOptions} data={newCoinbaseData} />
+            <Bar options={binanceChartOptions} data={newBinanceData} />
         </div>
     );
 }
