@@ -4,12 +4,22 @@ import { Doughnut } from 'react-chartjs-2';
 function CryptoPrices(props, {signedIn}) {
     const coinstat = props.coinData;
     const [cryptoData, setCryptoData] = useState(coinstat)
+    const [cryptoSearch, setCryptoSearch] = useState('')
     function integer(num){
-        return parseInt((num).toFixed(0)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
+        return parseInt((num)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
+    console.log(cryptoSearch)
 
     return (
         <div className="table-responsive">
-            <h1 className="text-center">Cryptocurrency Prices</h1>
+            <div className="text-center">
+                <h1 className="text-center">Search a Currency</h1>
+                <input 
+                    type="text"
+                    placeholder='Search..'
+                    className="text-center"
+                    onChange={event => setCryptoSearch(event.target.value)}
+                />
+             </div>
             <table className="table tablie-light table-hover">
                 <thead>
                     <tr>
@@ -25,7 +35,13 @@ function CryptoPrices(props, {signedIn}) {
                     </tr>
                 </thead>
                 <tbody>
-                    {cryptoData.slice(0,30).map((element, index) => (
+                    {cryptoData.filter((element) => {
+                        if (cryptoSearch === ''){
+                            return element
+                        } else if (element.name.toLowerCase().includes(cryptoSearch.toLowerCase())){
+                            return element
+                        }
+                    }).slice(0,10).map((element, index) => (
                         <tr key={element.volume}>
                             <td>{element.rank}</td>
                             <td><img src={element.icon} alt={element.id}/></td>
