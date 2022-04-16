@@ -12,6 +12,7 @@ import {
 import { Bar } from 'react-chartjs-2';
 import { binanceData } from '../data/binanceData.js';
 import { coinbaseData } from '../data/coinbaseData.js';
+import CryptoCarousel from './CryptoCarousel';
 
 ChartJS.register(
     CategoryScale,
@@ -22,7 +23,8 @@ ChartJS.register(
     Legend,
 )
 
-function Homepage({signedIn}) {
+function Homepage({signedIn, coinData}) {
+    // console.log(coinData)
     const [newCoinbaseData, setNewCoinbaseData] = useState(coinbaseData[0])
     const [coinbaseChartOptions, setCoinbaseChartOptions] = useState(coinbaseData[1]);
 
@@ -43,6 +45,7 @@ function Homepage({signedIn}) {
                     <button type="button" className="btn btn-primary">See News</button>
                 </Link> 
             </div>
+            <CryptoCarousel coinData={coinData} />
             <h2>Number of Crypto Users by Exchange</h2>
             <Bar options={coinbaseChartOptions} data={newCoinbaseData} />
             <Bar options={binanceChartOptions} data={newBinanceData} />
