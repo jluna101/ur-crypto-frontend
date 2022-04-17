@@ -4,6 +4,7 @@ import { Form, Button, Alert } from 'react-bootstrap';
 import { Link, useNavigate } from 'react-router-dom';
 
 const SignIn = ({ handleSetSignedIn }) => {
+    /* Variables */
     const initialData = {
         email: '',
         password: '',
@@ -55,7 +56,6 @@ const SignIn = ({ handleSetSignedIn }) => {
                     onChange ={handleChange}
                     />
                 </Form.Group>
-
                 <Form.Group controlId='password'>
                     <Form.Label>Password</Form.Label>
                     <Form.Control

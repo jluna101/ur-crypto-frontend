@@ -3,6 +3,7 @@ import { Nav, NavItem } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import Switch from 'react-js-switch';
 
+
 function Navbar({signedIn, handleSignout, userInfo, theme, toggleTheme}) {
     function uppercaseFirstLetter(string) {
         return string.charAt(0).toUpperCase() + string.slice(1);
@@ -28,7 +29,6 @@ function Navbar({signedIn, handleSignout, userInfo, theme, toggleTheme}) {
             </>
             )}
             <Switch className="navbar-brand" onChange={toggleTheme}/>
-
             </div>
         </nav>
     );

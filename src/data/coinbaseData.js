@@ -1,4 +1,4 @@
-    // data from https://www.businessofapps.com/data/coinbase-statistics/
+// Data Source: https://www.businessofapps.com/data/coinbase-statistics/
 export const coinbaseData = [
     {
         labels: ['2014', '2015', '2016', '2017', '2018', '2019', '2020', '2021', '2022' ],

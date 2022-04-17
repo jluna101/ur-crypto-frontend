@@ -27,12 +27,12 @@ function App() {
   let navigate = useNavigate();
   const [userInfo, setUserInfo] = useState(null);
 
-  // Toggle for dark and light mode
+  // Light & Dark mode toggle
   const toggleTheme = () => {
     setTheme((current) => (current === 'light'? 'dark' : 'light'));
   }
 
-  // Handles signing out
+  // Signout Handle
   const handleSignout = async (event) => {
     setSignedIn(false);
     try{
@@ -56,7 +56,7 @@ function App() {
     
   }
 
-  //API for News 
+  // News API 
   useEffect(() => {
     const url = `https://finnhub.io/api/v1/news?category=cryptocurrency&token=${newsKey}`;
     fetch(url)
@@ -64,7 +64,7 @@ function App() {
     .then(data => setNewsData(data))
     .catch(console.error);
     }, []);
-  //API for Price data
+  // Price Data API
   useEffect(() => {
       fetch('https://api.coinstats.app/public/v1/coins')
       .then((res) => res.json())
@@ -72,13 +72,13 @@ function App() {
       .catch(console.error);
       }, []);
 
-  // Verifying if there a token in storage
+  // Checking if token is in local storage
   useEffect(() => {
     if (localStorage.getItem('token')){
       setSignedIn(true)
     }
   }, []);
-  // Getting user info and making it accessible via userInfo state
+  // Setting userInfo to state
   const getUserInfo = async () => {
     try {
       const response = await fetch(API_URL + 'users/me/', {

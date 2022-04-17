@@ -1,4 +1,4 @@
-// data from https://www.businessofapps.com/data/binance-statistics/
+// Data Source https://www.businessofapps.com/data/binance-statistics/
 export const binanceData = [
     {
         labels: ['2017', '2018', '2019', '2020', '2021'],

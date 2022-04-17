@@ -3,10 +3,11 @@ import { Doughnut } from 'react-chartjs-2';
 import { useParams, Link } from 'react-router-dom';
 
 function CryptoPrices(props, {signedIn}) {
+    /* Variables */
     const coinstat = props.coinData;
     const [cryptoData, setCryptoData] = useState(coinstat)
     const [cryptoSearch, setCryptoSearch] = useState('')
-    // Below function adds commas to every third place for numbers
+    // Adding commas to number ex. 1,000
     function integer(num){
         return parseInt((num)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
     return (

@@ -23,6 +23,7 @@ ChartJS.register(
     Legend,
 )
 function Homepage({signedIn, coinData, newsData}) {
+    /* Variables */
     const [newCoinbaseData, setNewCoinbaseData] = useState(coinbaseData[0])
     const [coinbaseChartOptions, setCoinbaseChartOptions] = useState(coinbaseData[1]);
     const [newBinanceData, setNewBinanceData] = useState(binanceData[0])

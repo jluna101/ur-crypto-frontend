@@ -4,6 +4,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import API_URL from '../apiConfig';
 
 const SignUp = () => {
+    /* Variables */
     const initialData = {
         email: '',
         username: '',
@@ -21,7 +22,7 @@ const SignUp = () => {
             return { ...prevState, [event.target.id]: event.target.value };
         })
     }
-    // verifies the password and re-entered password match 
+    // Verifies password & re-entered password match 
     const handlePassMatch = (event) => {
         if (formData.password !== formData.re_password){
             setError(true)

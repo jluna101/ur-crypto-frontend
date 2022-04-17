@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 function CryptoNews({signedIn, dataForNews}) {
     const [newsData, setNewsData] = useState(dataForNews)
-    // Below function converts unix timestamp to an actual date
+    // Converts unix timestamp to date
     function datetime(num){
         return new Intl.DateTimeFormat('en-US', { year: 'numeric', month: '2-digit', day: '2-digit'}).format(num)}
     return (
