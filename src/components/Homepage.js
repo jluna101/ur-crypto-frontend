@@ -22,12 +22,9 @@ ChartJS.register(
     Tooltip,
     Legend,
 )
-
 function Homepage({signedIn, coinData, newsData}) {
-    // console.log(coinData)
     const [newCoinbaseData, setNewCoinbaseData] = useState(coinbaseData[0])
     const [coinbaseChartOptions, setCoinbaseChartOptions] = useState(coinbaseData[1]);
-
     const [newBinanceData, setNewBinanceData] = useState(binanceData[0])
     const [binanceChartOptions, setBinanceChartOptions] = useState(coinbaseData[1]);
 

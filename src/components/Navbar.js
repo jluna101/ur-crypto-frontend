@@ -6,7 +6,6 @@ import Switch from 'react-js-switch';
 function Navbar({signedIn, handleSignout, userInfo, theme, toggleTheme}) {
     function uppercaseFirstLetter(string) {
         return string.charAt(0).toUpperCase() + string.slice(1);
-    
     }
     return (
         <nav className="navbar navbar-dark bg-dark">
@@ -24,8 +23,8 @@ function Navbar({signedIn, handleSignout, userInfo, theme, toggleTheme}) {
                 <><Nav.Link className="text-decoration-none" onClick={handleSignout}>Signout</Nav.Link></>
             ):( 
             <>
-            <Link to='/signin' className="text-decoration-none"><a className="navbar-brand">Sign-in</a></Link>
-            <Link to='/signup' className="text-decoration-none"><a className="navbar-brand">Sign-up</a></Link>
+                <Link to='/signin' className="text-decoration-none"><a className="navbar-brand">Sign-in</a></Link>
+                <Link to='/signup' className="text-decoration-none"><a className="navbar-brand">Sign-up</a></Link>
             </>
             )}
             <Switch className="navbar-brand" onChange={toggleTheme}/>

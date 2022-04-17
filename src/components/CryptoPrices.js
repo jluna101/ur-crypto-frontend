@@ -6,6 +6,7 @@ function CryptoPrices(props, {signedIn}) {
     const coinstat = props.coinData;
     const [cryptoData, setCryptoData] = useState(coinstat)
     const [cryptoSearch, setCryptoSearch] = useState('')
+    // Below function adds commas to every third place for numbers
     function integer(num){
         return parseInt((num)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
     return (

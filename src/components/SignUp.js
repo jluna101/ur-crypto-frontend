@@ -47,7 +47,6 @@ const SignUp = () => {
                         }, 3000)
                 } else if (response.status === 400) {
                     const data = await response.json();
-                    console.log(data) // CONSOLE LOG
                     // Displays errors - bug ( may not display multiple ones at once ex. username and email errors)
                     if (data.username){
                         setSignupErrors(data.username); 

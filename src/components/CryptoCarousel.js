@@ -3,9 +3,9 @@ import AliceCarousel from 'react-alice-carousel';
 import { Link } from 'react-router-dom';
 
 function CryptoCarousel({coinData, newsData}) {
-    console.log(newsData)
     const [topCrypto, setTopCrypto] = useState(coinData)
     const [topNews, setTopNews] = useState(newsData)
+    // Below function added commas every third place
     function integer(num){
         return parseInt((num)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
 
@@ -40,13 +40,11 @@ function CryptoCarousel({coinData, newsData}) {
                 src={newsData.image}
                 alt={newsData.headline}
                 height='80'
-                style={{ marginBottom: 10}}
-                  />
+                style={{ marginBottom: 10}}/>
                 <p className="text-decoration-none">{newsData.headline}</p>
             </a>
         )
     })
-
 
     const responsive = {
         0: {
@@ -62,7 +60,6 @@ function CryptoCarousel({coinData, newsData}) {
             <Link to='/prices'>
                 <h2>Live Crypto Prices </h2>
             </Link>
-            
             <AliceCarousel 
                  mouseTracking
                  infinite
@@ -76,7 +73,6 @@ function CryptoCarousel({coinData, newsData}) {
             <Link to='/news'>
                 <h2>Trending News</h2>
             </Link>
-            
             <AliceCarousel 
                  mouseTracking
                  infinite

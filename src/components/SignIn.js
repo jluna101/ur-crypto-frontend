@@ -16,7 +16,6 @@ const SignIn = ({ handleSetSignedIn }) => {
             return { ...prevState, [event.target.id]: event.target.value };
         })
     }
-
     const handleSignin = async (event) => {
         event.preventDefault();
         setError(false)
