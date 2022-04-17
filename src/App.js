@@ -52,7 +52,7 @@ function App() {
 
     //API for CryptoNews
   useEffect(() => {
-    const url = `https://finnhub.io/api/v1/news?category=crypto&token=${newsKey}`;
+    const url = `https://finnhub.io/api/v1/news?category=cryptocurrency&token=${newsKey}`;
     fetch(url)
     .then((res) => res.json())
     .then(data => setNewsData(data))
@@ -108,7 +108,7 @@ function App() {
       <Header coinData={cryptoData}/>
       <Navbar signedIn={signedIn} userInfo={userInfo} handleSignout={handleSignout}/>
       <Routes>
-        <Route path='/'element={<Homepage coinData={cryptoData} signedIn={signedIn}/>}/>
+        <Route path='/'element={<Homepage coinData={cryptoData} newsData={newsData} signedIn={signedIn}/>}/>
         <Route path='/prices'element={<CryptoPrices signedIn={signedIn} coinData={cryptoData}/>}/>
         <Route path='/news' element={<CryptoNews signedIn={signedIn} data={newsData}/>}/> 
         <Route path='/transactions' element={<CoinbaseTransactions signedIn={signedIn}/>}/> 

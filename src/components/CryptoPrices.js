@@ -7,8 +7,6 @@ function CryptoPrices(props, {signedIn}) {
     const [cryptoSearch, setCryptoSearch] = useState('')
     function integer(num){
         return parseInt((num)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
-    console.log(cryptoSearch)
-
     return (
         <div className="table-responsive">
             <div className="text-center">

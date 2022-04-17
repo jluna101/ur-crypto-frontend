@@ -23,7 +23,7 @@ ChartJS.register(
     Legend,
 )
 
-function Homepage({signedIn, coinData}) {
+function Homepage({signedIn, coinData, newsData}) {
     // console.log(coinData)
     const [newCoinbaseData, setNewCoinbaseData] = useState(coinbaseData[0])
     const [coinbaseChartOptions, setCoinbaseChartOptions] = useState(coinbaseData[1]);
@@ -32,7 +32,7 @@ function Homepage({signedIn, coinData}) {
     const [binanceChartOptions, setBinanceChartOptions] = useState(coinbaseData[1]);
 
     return (
-        <div>
+        <div className="text-center">
             <h1>Welcome to urCrypto!</h1>
             <div>
                 Expore your favorite cryptocurrencies and see how they're doing.&nbsp; 
@@ -45,10 +45,12 @@ function Homepage({signedIn, coinData}) {
                     <button type="button" className="btn btn-primary">See News</button>
                 </Link> 
             </div>
-            <CryptoCarousel coinData={coinData} />
+            <CryptoCarousel coinData={coinData} newsData={newsData} />
             <h2>Number of Crypto Users by Exchange</h2>
-            <Bar options={coinbaseChartOptions} data={newCoinbaseData} />
-            <Bar options={binanceChartOptions} data={newBinanceData} />
+            <div>
+                <Bar options={coinbaseChartOptions} data={newCoinbaseData} />
+                <Bar options={binanceChartOptions} data={newBinanceData} />
+            </div>
         </div>
     );
 }
