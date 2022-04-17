@@ -4,6 +4,8 @@ import { Link, useNavigate } from 'react-router-dom';
 import API_URL from '../apiConfig';
 
 const SignUp = () => {
+    /* === Title Tag === */
+    document.title = '| Signup'
     /* Variables */
     const initialData = {
         email: '',

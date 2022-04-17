@@ -5,6 +5,8 @@ function CryptoDetails(props) {
     /* Variables */
     const { id } = useParams();
     const [coin, setCoin] = useState([])
+    /* === Title Tag === */
+    document.title = `| ${id} Details`
     // Calling Crypto API
     useEffect(() => {
         fetch(`https://api.coinstats.app/public/v1/coins/${id.toLowerCase()}`)

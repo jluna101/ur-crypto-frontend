@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
-import { Doughnut } from 'react-chartjs-2';
-import { useParams, Link } from 'react-router-dom';
+// import { Doughnut } from 'react-chartjs-2';
+import { Link } from 'react-router-dom';
 
 function CryptoPrices(props, {signedIn}) {
+    /* === Title Tag === */
+    document.title = '| Prices'
     /* Variables */
     const coinstat = props.coinData;
     const [cryptoData, setCryptoData] = useState(coinstat)
@@ -47,9 +49,7 @@ function CryptoPrices(props, {signedIn}) {
                             
                             <td>{element.rank}</td>
                             <td><img src={element.icon} alt={element.id}/></td>
-                            <Link className="text-decoration-none color-inherit" to={`/prices/${element.name}`}>
-                                <td>{element.symbol}</td>
-                            </Link>
+                            <td><Link className="text-decoration-none color-inherit" to={`/prices/${element.name}`}>{element.symbol}</Link></td>
                             <td>${integer(element.price)}</td>
                             <td>{element.priceChange1h}%</td>
                             <td>{element.priceChange1d}%</td>

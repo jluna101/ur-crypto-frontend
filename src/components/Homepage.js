@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState } from 'react';
 import { 
     Chart as ChartJS,
     CategoryScale,
@@ -23,6 +22,8 @@ ChartJS.register(
     Legend,
 )
 function Homepage({signedIn, coinData, newsData}) {
+    /* === Title Tag === */
+    document.title = '| Homepage'
     /* Variables */
     const [newCoinbaseData, setNewCoinbaseData] = useState(coinbaseData[0])
     const [coinbaseChartOptions, setCoinbaseChartOptions] = useState(coinbaseData[1]);

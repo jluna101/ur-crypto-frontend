@@ -4,6 +4,8 @@ import { Form, Button, Alert } from 'react-bootstrap';
 import { Link, useNavigate } from 'react-router-dom';
 
 const SignIn = ({ handleSetSignedIn }) => {
+    /* === Title Tag === */
+    document.title = '| Signin'
     /* Variables */
     const initialData = {
         email: '',

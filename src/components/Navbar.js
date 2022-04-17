@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { Nav, NavItem } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import Switch from 'react-js-switch';
@@ -10,11 +10,11 @@ function Navbar({signedIn, handleSignout, userInfo, theme, toggleTheme}) {
     }
     return (
         <nav className="navbar navbar-dark bg-dark">
-            <div className="container-fluid">
-            <Link to='/' className="text-decoration-none"><a className="navbar-brand">urCrypto</a></Link>
-            <Link to='/prices' className="text-decoration-none"><a className="navbar-brand " >Prices</a></Link>
-            <Link to='/news' className="text-decoration-none"><a className="navbar-brand">News</a></Link>
-            <Link to='/transactions' className="text-decoration-none"><a className="navbar-brand">Transactions</a></Link>
+            <div className="container-fluid ">
+            <Link to='/' className="text-decoration-none navbar-brand">urCrypto</Link>
+            <Link to='/prices' className="text-decoration-none navbar-brand">Prices</Link>
+            <Link to='/news' className="text-decoration-none navbar-brand">News</Link>
+            <Link to='/transactions' className="text-decoration-none navbar-brand">Transactions</Link>
             {userInfo !== null ? (
 							<NavItem className="navbar-brand">
 								Welcome {uppercaseFirstLetter(userInfo.username)}!
@@ -22,13 +22,13 @@ function Navbar({signedIn, handleSignout, userInfo, theme, toggleTheme}) {
 						): <></>}
             {(signedIn === true) ? (
                 <><Nav.Link className="text-decoration-none" onClick={handleSignout}>Signout</Nav.Link></>
-            ):( 
-            <>
-                <Link to='/signin' className="text-decoration-none"><a className="navbar-brand">Sign-in</a></Link>
-                <Link to='/signup' className="text-decoration-none"><a className="navbar-brand">Sign-up</a></Link>
-            </>
-            )}
-            <Switch className="navbar-brand" onChange={toggleTheme}/>
+                ):( 
+                <>
+                    <Link to='/signin' className="text-decoration-none navbar-brand">Sign-in</Link>
+                    <Link to='/signup' className="text-decoration-none navbar-brand">Sign-up</Link>
+                </>
+                )}
+            <Switch onChange={toggleTheme}/>
             </div>
         </nav>
     );

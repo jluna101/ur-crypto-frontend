@@ -1,7 +1,8 @@
 import React from 'react';
 
 function CoinbaseTransactions({signedIn}) {
-
+    /* === Title Tag === */
+    document.title = `| Transactions`
 
     return (
         <div>

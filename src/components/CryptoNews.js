@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 
 function CryptoNews({signedIn, dataForNews}) {
+    /* === Title Tag === */
+    document.title = '| News'
+    /* Variables */
     const [newsData, setNewsData] = useState(dataForNews)
     // Converts unix timestamp to date
     function datetime(num){
