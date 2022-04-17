@@ -89,7 +89,6 @@ function App() {
       if (response.status === 200){
         const data = await response.json();
         setUserInfo(data);
-        console.log('user data set')
       }
     } catch (error) {
       console.log(error)
@@ -101,8 +100,8 @@ function App() {
       <Navbar signedIn={signedIn} theme={theme} setTheme={setTheme} toggleTheme={toggleTheme} userInfo={userInfo} handleSignout={handleSignout}/>
       <Routes>
         <Route path='/'element={<Homepage coinData={cryptoData} newsData={newsData} signedIn={signedIn}/>}/>
-        <Route path='/prices'element={<CryptoPrices signedIn={signedIn} coinData={cryptoData}/>}/>
-        <Route path='/prices/:id' element={<CryptoDetails coinData={cryptoData}/>} />
+        <Route path='/prices'element={<CryptoPrices coinData={cryptoData}/>}/>
+        <Route path='/prices/:id' element={<CryptoDetails signedInData={signedIn} coinData={cryptoData}/>} />
         <Route path='/news' element={<CryptoNews signedIn={signedIn} dataForNews={newsData}/>}/> 
         <Route path='/transactions' element={<CoinbaseTransactions signedIn={signedIn}/>}/> 
         <Route path='/signin' element={<SignIn handleSetSignedIn={handleSetSignedIn}/>}/>

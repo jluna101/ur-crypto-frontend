@@ -15,9 +15,10 @@ function CryptoCarousel({coinData, newsData}) {
         if (element.price > 1){
             return element
         }
+
         }).slice(0,30).map((coinData) => {
             return (
-                <Link to={`/prices/${coinData.name}`}>
+                <Link style={{ textDecoration: 'none' , color: 'inherit'}} to={`/prices/${coinData.name}`}>
                     <img 
                     src={coinData.icon}
                     alt={coinData.name}
@@ -35,7 +36,7 @@ function CryptoCarousel({coinData, newsData}) {
         }
         }).slice(0,10).map((newsData) => {
             return (
-                <a 
+                <a style={{ textDecoration: 'none' , color: 'inherit'}}
                     href={newsData.url}
                     target="_blank"
                     rel="noreferrer noopener">
@@ -44,7 +45,7 @@ function CryptoCarousel({coinData, newsData}) {
                     alt={newsData.headline}
                     height='80'
                     style={{ marginBottom: 10}}/>
-                    <p className="text-decoration-none">{newsData.headline}</p>
+                    <p >{newsData.headline}</p>
                 </a>
             )
         })
@@ -59,8 +60,8 @@ function CryptoCarousel({coinData, newsData}) {
     };
 
     return (
-        <div>
-            <Link to='/prices'>
+        <div style={{ textDecoration: 'none' , color: 'inherit'}} >
+            <Link style={{ textDecoration: 'none' , color: 'inherit'}} to='/prices'>
                 <h2>Live Crypto Prices </h2>
             </Link>
             <AliceCarousel 
@@ -73,15 +74,15 @@ function CryptoCarousel({coinData, newsData}) {
                     autoPlay
                     items={coinItems}
             />
-            <Link to='/news'>
+            <Link style={{ textDecoration: 'none' , color: 'inherit'}} to='/news'>
                 <h2>Trending News</h2>
             </Link>
             <AliceCarousel 
-                 mouseTracking
-                 infinite
-                 autoPlayInterval={2000}
-                 animationDuration={4000}
-                 disableDotsControls
+                mouseTracking
+                infinite
+                autoPlayInterval={2000}
+                animationDuration={4000}
+                disableDotsControls
                     responsive={responsive}
                     autoPlay
                     items={newsItems}

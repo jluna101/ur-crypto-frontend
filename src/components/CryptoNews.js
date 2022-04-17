@@ -18,7 +18,7 @@ function CryptoNews({signedIn, dataForNews}) {
                 }
             }).slice(0,100).map((element, index) => (
                         <div key={element.id} className="w-50 p-3" >
-                            <a href={element.url} target="_blank" rel="noreferrer noopener" >
+                            <a style={{ textDecoration: 'none' , color: 'inherit'}} href={element.url} target="_blank" rel="noreferrer noopener" >
                                 <img className="img-fluid" src={element.image} alt={element.headline} />
                                 <p>{element.source}</p>
                                 <h2>{element.headline}</h2>

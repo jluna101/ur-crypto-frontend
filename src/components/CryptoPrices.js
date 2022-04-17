@@ -1,14 +1,20 @@
-import React, { useState } from 'react';
-// import { Doughnut } from 'react-chartjs-2';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
-function CryptoPrices(props, {signedIn}) {
+function CryptoPrices(props) {
     /* === Title Tag === */
     document.title = '| Prices'
     /* Variables */
     const coinstat = props.coinData;
     const [cryptoData, setCryptoData] = useState(coinstat)
     const [cryptoSearch, setCryptoSearch] = useState('')
+    const [signedIn, setSignedIn] = useState(false)
+    useEffect(() => {
+        if (localStorage.getItem('token')){
+          setSignedIn(true)
+        }
+      }, []);
+
     // Adding commas to number ex. 1,000
     function integer(num){
         return parseInt((num)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
@@ -45,19 +51,19 @@ function CryptoPrices(props, {signedIn}) {
                             return element
                         }
                     }).slice(0,10).map((element, index) => (
-                        <tr key={element.volume}>
                             
-                            <td>{element.rank}</td>
-                            <td><img src={element.icon} alt={element.id}/></td>
-                            <td><Link className="text-decoration-none color-inherit" to={`/prices/${element.name}`}>{element.symbol}</Link></td>
-                            <td>${integer(element.price)}</td>
-                            <td>{element.priceChange1h}%</td>
-                            <td>{element.priceChange1d}%</td>
-                            <td>{element.priceChange1w}%</td>
-                            <td>${integer(element.marketCap)}</td>
-                            <td>${integer(element.volume)}</td>
+                            <tr key={element.volume}>
+                                <td>{element.rank}</td>
+                                <td><img src={element.icon} alt={element.id}/></td>
+                                <td><Link style={{ textDecoration: 'none' }} to={`/prices/${element.name}`}>{element.symbol}</Link></td>
+                                <td>{(signedIn === false)? <div style={{ filter: 'blur(3px)', pointerEvents: 'none' }}>${integer(element.price)}</div>:<div>${integer(element.price)}</div>}</td>
+                                <td>{element.priceChange1h}%</td>
+                                <td>{element.priceChange1d}%</td>
+                                <td>{element.priceChange1w}%</td>
+                                <td>{(signedIn === false)? <div style={{ filter: 'blur(3px)', pointerEvents: 'none' }}>${integer(element.marketCap)}</div>:<div>${integer(element.marketCap)}</div>}</td>
+                                <td>{(signedIn === false)? <div style={{ filter: 'blur(3px)', pointerEvents: 'none' }}>${integer(element.volume)}</div>:<div>${integer(element.volume)}</div>}</td>
+                            </tr>
                             
-                        </tr>
                     ))}
                 </tbody>
             </table>

@@ -70,7 +70,10 @@
   background-color: white;
   color: black;
 }
-
+#link {
+  text-decoration: none;
+  color: inherit;
+}
 /* .app {
   background-color: var(--background);
   color: var(--text-primary);
