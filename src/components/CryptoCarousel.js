@@ -15,7 +15,7 @@ function CryptoCarousel({coinData, newsData}) {
         }
     }).slice(0,30).map((coinData) => {
         return (
-            <Link to='/prices'>
+            <Link to={`/prices/${coinData.name}`}>
                 <img 
                 src={coinData.icon}
                 alt={coinData.name}
@@ -32,7 +32,10 @@ function CryptoCarousel({coinData, newsData}) {
         }
     }).slice(0,10).map((newsData) => {
         return (
-            <Link to='/prices'>
+            <a 
+                href={newsData.url}
+                target="_blank"
+                rel="noreferrer noopener">
                 <img 
                 src={newsData.image}
                 alt={newsData.headline}
@@ -40,7 +43,7 @@ function CryptoCarousel({coinData, newsData}) {
                 style={{ marginBottom: 10}}
                   />
                 <p className="text-decoration-none">{newsData.headline}</p>
-            </Link>
+            </a>
         )
     })
 
@@ -56,7 +59,10 @@ function CryptoCarousel({coinData, newsData}) {
 
     return (
         <div>
-            <h2>Live Crypto Prices </h2>
+            <Link to='/prices'>
+                <h2>Live Crypto Prices </h2>
+            </Link>
+            
             <AliceCarousel 
                  mouseTracking
                  infinite
@@ -67,7 +73,10 @@ function CryptoCarousel({coinData, newsData}) {
                     autoPlay
                     items={coinItems}
             />
-            <h2>Trending News</h2>
+            <Link to='/news'>
+                <h2>Trending News</h2>
+            </Link>
+            
             <AliceCarousel 
                  mouseTracking
                  infinite
