@@ -9,7 +9,11 @@ function CryptoCarousel({coinData, newsData}) {
     function integer(num){
         return parseInt((num)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
 
-    const coinItems = topCrypto.slice(0,10).map((coinData) => {
+    const coinItems = topCrypto.filter((element) => {
+        if (element.price > 1){
+            return element
+        }
+    }).slice(0,30).map((coinData) => {
         return (
             <Link to='/prices'>
                 <img 
@@ -22,7 +26,11 @@ function CryptoCarousel({coinData, newsData}) {
             </Link>
         )
     })
-    const newsItems = topNews.slice(0,10).map((newsData) => {
+    const newsItems = topNews.filter((element) => {
+        if (element.image !== 'https://data.bloomberglp.com/company/sites/2/2019/01/logobbg-wht.png'){
+            return element
+        }
+    }).slice(0,10).map((newsData) => {
         return (
             <Link to='/prices'>
                 <img 
@@ -53,7 +61,7 @@ function CryptoCarousel({coinData, newsData}) {
                  mouseTracking
                  infinite
                  autoPlayInterval={0}
-                 animationDuration={2000}
+                 animationDuration={2500}
                  disableDotsControls
                     responsive={responsive}
                     autoPlay

@@ -34,22 +34,13 @@ function Homepage({signedIn, coinData, newsData}) {
     return (
         <div className="text-center">
             <h1>Welcome to urCrypto!</h1>
-            <div>
-                Expore your favorite cryptocurrencies and see how they're doing.&nbsp; 
-                <Link to ='/prices' >
-                    <button type="button" className="btn btn-primary">See Prices</button>
-                </Link> 
-            </div>
-            <div>Stay on top of the latest crypto news in real time! &nbsp;  
-                <Link to ='/news' >
-                    <button type="button" className="btn btn-primary">See News</button>
-                </Link> 
-            </div>
+            <h3>The future is here</h3>
+            <p>With over 300 million crypto users worldwide urCrypto has you covered to stay ahead!</p>
             <CryptoCarousel coinData={coinData} newsData={newsData} />
             <h2>Number of Crypto Users by Exchange</h2>
             <div>
-                <Bar options={coinbaseChartOptions} data={newCoinbaseData} />
-                <Bar options={binanceChartOptions} data={newBinanceData} />
+                <Bar style={{ marginLeft: 150, marginRight: 150}} options={coinbaseChartOptions} data={newCoinbaseData} />
+                <Bar style={{ marginLeft: 150, marginRight: 150}}  options={binanceChartOptions} data={newBinanceData} />
             </div>
         </div>
     );
