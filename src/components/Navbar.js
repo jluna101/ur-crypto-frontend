@@ -1,10 +1,12 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Nav, NavItem } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import Switch from 'react-js-switch';
 
-function Navbar({signedIn, handleSignout, userInfo}) {
+function Navbar({signedIn, handleSignout, userInfo, theme, toggleTheme}) {
     function uppercaseFirstLetter(string) {
         return string.charAt(0).toUpperCase() + string.slice(1);
+    
     }
     return (
         <nav className="navbar navbar-dark bg-dark">
@@ -26,11 +28,8 @@ function Navbar({signedIn, handleSignout, userInfo}) {
             <Link to='/signup' className="text-decoration-none"><a className="navbar-brand">Sign-up</a></Link>
             </>
             )}
+            <Switch className="navbar-brand" onChange={toggleTheme}/>
 
-            {/* <form className="d-flex">
-                <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
-                <button className="navbar-brand btn btn-outline-secondary" type="submit">Search</button>
-            </form> */}
             </div>
         </nav>
     );
@@ -38,9 +37,3 @@ function Navbar({signedIn, handleSignout, userInfo}) {
 
 export default Navbar;
 
-{/* <Link className="text-decoration-none" to='/'>urCrypto</Link>&nbsp;
-<Link className="text-decoration-none" to='/prices'>Prices</Link>&nbsp;
-<Link className="text-decoration-none" to='/news'>News</Link>&nbsp;
-<Link className="text-decoration-none" to='/transactions'>Transactions</Link>&nbsp;
-<Link className="text-decoration-none" to='/signin'>Sign-In </Link>&nbsp;
-<Link className="text-decoration-none" to='/signup'>Sign-Up </Link>&nbsp; */}

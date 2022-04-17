@@ -6,7 +6,6 @@ function CryptoPrices(props, {signedIn}) {
     const coinstat = props.coinData;
     const [cryptoData, setCryptoData] = useState(coinstat)
     const [cryptoSearch, setCryptoSearch] = useState('')
-    const { id } = useParams();
     function integer(num){
         return parseInt((num)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
     return (

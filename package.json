@@ -13,8 +13,11 @@
     "react-bootstrap": "^2.2.3",
     "react-chartjs-2": "^4.1.0",
     "react-dom": "^18.0.0",
+    "react-js-switch": "^1.1.6",
     "react-router-dom": "^6.3.0",
     "react-scripts": "5.0.0",
+    "react-utils": "^1.0.0",
+    "use-local-storage": "^2.3.6",
     "web-vitals": "^2.1.4"
   },
   "scripts": {

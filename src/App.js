@@ -11,9 +11,16 @@ import SignUp from './components/SignUp';
 import { useEffect, useState } from 'react';
 import API_URL from './apiConfig';
 import CryptoDetails from './components/CryptoDetails';
-// import { Line } from 'react-chartjs-2';
+import { createContext } from 'react';
+import useLocalStorage from 'use-local-storage';
+import Switch from 'react-js-switch';
+// TEST LIGHT MODE
+export const ThemeContext = createContext(null);
+
+
 
 function App() {
+  const [theme, setTheme] = useState('light')
   const [cryptoData, setCryptoData] = useState([])
   const [newsData, setNewsData] = useState([])
   const newsKey =process.env.REACT_APP_NEWS_KEY;
@@ -25,6 +32,11 @@ function App() {
   };
   let navigate = useNavigate();
   const [userInfo, setUserInfo] = useState(null);
+
+  // light/dark mode 
+  const toggleTheme = () => {
+    setTheme((current) => (current === 'light'? 'dark' : 'light'));
+  }
 
   // handles signing out
   const handleSignout = async (event) => {
@@ -88,8 +100,7 @@ function App() {
     } catch (error) {
       console.log(error)
     }
-  }
-  // // TESTING FOR COINBASE API 
+  }  // // TESTING FOR COINBASE API 
   // const connectCB = async () => {
   //   try {
   //     const response = await fetch(`https://coinbase.com/oauth/authorize?resoinse_type=code&client_id=${process.env.COINBASE_CLIENT_ID}`)
@@ -103,20 +114,24 @@ function App() {
 
 
 
+
   return (
-    <div>
-      <Navbar signedIn={signedIn} userInfo={userInfo} handleSignout={handleSignout}/>
-      <Routes>
-        <Route path='/'element={<Homepage coinData={cryptoData} newsData={newsData} signedIn={signedIn}/>}/>
-        <Route path='/prices'element={<CryptoPrices signedIn={signedIn} coinData={cryptoData}/>}/>
-        <Route path='/prices/:id' element={<CryptoDetails coinData={cryptoData}/>} />
-        <Route path='/news' element={<CryptoNews signedIn={signedIn} data={newsData}/>}/> 
-        <Route path='/transactions' element={<CoinbaseTransactions signedIn={signedIn}/>}/> 
-        <Route path='/signin' element={<SignIn handleSetSignedIn={handleSetSignedIn}/>}/>
-        <Route path='/signup' element={<SignUp/>}/>
-      </Routes>
-      <Footer/>
-    </div>
+    // <ThemeContext.Provider value={{theme, toggleTheme}}>
+      <div id={theme}>
+        <Navbar signedIn={signedIn} theme={theme} setTheme={setTheme} toggleTheme={toggleTheme} userInfo={userInfo} handleSignout={handleSignout}/>
+        <Switch className="navbar-brand" onChange={toggleTheme} checked={setTheme === 'dark'}/>
+        <Routes>
+          <Route path='/'element={<Homepage coinData={cryptoData} newsData={newsData} signedIn={signedIn}/>}/>
+          <Route path='/prices'element={<CryptoPrices signedIn={signedIn} coinData={cryptoData}/>}/>
+          <Route path='/prices/:id' element={<CryptoDetails coinData={cryptoData}/>} />
+          <Route path='/news' element={<CryptoNews signedIn={signedIn} data={newsData}/>}/> 
+          <Route path='/transactions' element={<CoinbaseTransactions signedIn={signedIn}/>}/> 
+          <Route path='/signin' element={<SignIn handleSetSignedIn={handleSetSignedIn}/>}/>
+          <Route path='/signup' element={<SignUp/>}/>
+        </Routes>
+        <Footer/>
+      </div>
+    // </ThemeContext.Provider>
   );
 }
 
