@@ -30,7 +30,6 @@ const SignIn = ({ handleSetSignedIn }) => {
                     'Content-Type': 'application/json',
                 },
             })
-            console.log(response)
             if (response.status === 200){
                 const data = await response.json()
                 handleSetSignedIn(data.auth_token)

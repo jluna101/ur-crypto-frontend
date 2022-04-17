@@ -102,7 +102,7 @@ function App() {
         <Route path='/'element={<Homepage coinData={cryptoData} newsData={newsData} signedIn={signedIn}/>}/>
         <Route path='/prices'element={<CryptoPrices coinData={cryptoData}/>}/>
         <Route path='/prices/:id' element={<CryptoDetails signedInData={signedIn} coinData={cryptoData}/>} />
-        <Route path='/news' element={<CryptoNews signedIn={signedIn} dataForNews={newsData}/>}/> 
+        <Route path='/news' element={<CryptoNews dataForNews={newsData}/>}/> 
         <Route path='/transactions' element={<CoinbaseTransactions signedIn={signedIn}/>}/> 
         <Route path='/signin' element={<SignIn handleSetSignedIn={handleSetSignedIn}/>}/>
         <Route path='/signup' element={<SignUp/>}/>
