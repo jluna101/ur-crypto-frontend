@@ -2,7 +2,6 @@ import './App.css';
 import CryptoNews from './components/CryptoNews';
 import CryptoPrices from './components/CryptoPrices';
 import Footer from './components/Footer';
-import Header from './components/Header';
 import Navbar from './components/Navbar';
 import CoinbaseTransactions from './components/CoinbaseTransactions';
 import { BrowserRouter as Router, Routes, Route, useNavigate } from 'react-router-dom'; 
@@ -11,6 +10,7 @@ import SignIn from './components/SignIn';
 import SignUp from './components/SignUp';
 import { useEffect, useState } from 'react';
 import API_URL from './apiConfig';
+import CryptoDetails from './components/CryptoDetails';
 // import { Line } from 'react-chartjs-2';
 
 function App() {
@@ -105,11 +105,11 @@ function App() {
 
   return (
     <div>
-      <Header coinData={cryptoData}/>
       <Navbar signedIn={signedIn} userInfo={userInfo} handleSignout={handleSignout}/>
       <Routes>
         <Route path='/'element={<Homepage coinData={cryptoData} newsData={newsData} signedIn={signedIn}/>}/>
         <Route path='/prices'element={<CryptoPrices signedIn={signedIn} coinData={cryptoData}/>}/>
+        <Route path='/prices/:id' element={<CryptoDetails coinData={cryptoData}/>} />
         <Route path='/news' element={<CryptoNews signedIn={signedIn} data={newsData}/>}/> 
         <Route path='/transactions' element={<CoinbaseTransactions signedIn={signedIn}/>}/> 
         <Route path='/signin' element={<SignIn handleSetSignedIn={handleSetSignedIn}/>}/>

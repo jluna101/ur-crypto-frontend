@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
 import { Doughnut } from 'react-chartjs-2';
+import { useParams, Link } from 'react-router-dom';
 
 function CryptoPrices(props, {signedIn}) {
     const coinstat = props.coinData;
     const [cryptoData, setCryptoData] = useState(coinstat)
     const [cryptoSearch, setCryptoSearch] = useState('')
+    const { id } = useParams();
     function integer(num){
         return parseInt((num)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
     return (
@@ -41,15 +43,19 @@ function CryptoPrices(props, {signedIn}) {
                         }
                     }).slice(0,10).map((element, index) => (
                         <tr key={element.volume}>
+                            
                             <td>{element.rank}</td>
                             <td><img src={element.icon} alt={element.id}/></td>
-                            <td>{element.symbol}</td>
+                            <Link className="text-decoration-none color-inherit" to={`/prices/${element.name}`}>
+                                <td>{element.symbol}</td>
+                            </Link>
                             <td>${integer(element.price)}</td>
                             <td>{element.priceChange1h}%</td>
                             <td>{element.priceChange1d}%</td>
                             <td>{element.priceChange1w}%</td>
                             <td>${integer(element.marketCap)}</td>
                             <td>${integer(element.volume)}</td>
+                            
                         </tr>
                     ))}
                 </tbody>
