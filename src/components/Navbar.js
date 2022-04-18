@@ -14,7 +14,6 @@ function Navbar({signedIn, handleSignout, userInfo, theme, toggleTheme}) {
             <Link to='/' className="text-decoration-none navbar-brand">urCrypto</Link>
             <Link to='/prices' className="text-decoration-none navbar-brand">Prices</Link>
             <Link to='/news' className="text-decoration-none navbar-brand">News</Link>
-            <Link to='/transactions' className="text-decoration-none navbar-brand">Transactions</Link>
             {userInfo !== null ? (
 							<NavItem className="navbar-brand">
 								Welcome {uppercaseFirstLetter(userInfo.username)}!

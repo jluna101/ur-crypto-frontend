@@ -32,7 +32,7 @@ function Homepage({signedIn, coinData, newsData}) {
 
     return (
         <div className="text-center">
-            <h1>Welcome to urCrypto!</h1>
+            <h1 className='primary'>Welcome to urCrypto!</h1>
             <h3>The future is here</h3>
             <p>With over 300 million crypto users worldwide urCrypto has you covered to stay ahead!</p>
             <CryptoCarousel coinData={coinData} newsData={newsData} />

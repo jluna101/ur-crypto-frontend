@@ -11,6 +11,7 @@ import { useEffect, useState, createContext } from 'react';
 import API_URL from './apiConfig';
 import CryptoDetails from './components/CryptoDetails';
 import Switch from 'react-js-switch';
+import Styles from './components/Styles';
 
 function App() {
   const [theme, setTheme] = useState('light')
@@ -101,6 +102,7 @@ function App() {
         <Route path='/news' element={<CryptoNews dataForNews={newsData}/>}/> 
         <Route path='/signin' element={<SignIn handleSetSignedIn={handleSetSignedIn}/>}/>
         <Route path='/signup' element={<SignUp/>}/>
+        <Route path='/styles'element={<Styles/>}/>
       </Routes>
       <Footer/>
     </div>
