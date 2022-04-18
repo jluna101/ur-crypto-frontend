@@ -28,7 +28,7 @@ function CryptoNews({dataForNews}) {
             }).slice(0,100).map((element, index) => (
                         <div key={element.id} className="w-50 p-3" >
                             { signedIn === false ? 
-                                <div style={{ filter: 'blur(2px)', pointerEvents: 'none' }}>
+                                <div style={{ filter: 'blur(2.5px)', pointerEvents: 'none' }}>
                                     <img className="img-fluid" src={element.image} alt={element.headline} />
                                     <p>{element.source}</p>
                                     <h2>{element.headline}</h2>

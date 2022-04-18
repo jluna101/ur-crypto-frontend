@@ -2,8 +2,8 @@ import React from 'react';
 
 function Footer(props) {
     return (
-        <div>
-            © 2022 urCrypto. All rights reserved
+        <div className="text-center">
+            <h4>© 2022 urCrypto. All rights reserved</h4>
         </div>
     );
 }

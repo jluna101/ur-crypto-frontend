@@ -28,7 +28,7 @@ function Homepage({signedIn, coinData, newsData}) {
     const [newCoinbaseData, setNewCoinbaseData] = useState(coinbaseData[0])
     const [coinbaseChartOptions, setCoinbaseChartOptions] = useState(coinbaseData[1]);
     const [newBinanceData, setNewBinanceData] = useState(binanceData[0])
-    const [binanceChartOptions, setBinanceChartOptions] = useState(coinbaseData[1]);
+    const [binanceChartOptions, setBinanceChartOptions] = useState(binanceData[1]);
 
     return (
         <div className="text-center">
