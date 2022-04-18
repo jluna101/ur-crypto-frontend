@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import SignUpModal from './SignUpModal';
 
 function CryptoPrices(props) {
     /* === Title Tag === */
@@ -19,7 +20,7 @@ function CryptoPrices(props) {
     function integer(num){
         return parseInt((num)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
     return (
-        <div className="table-responsive">
+        <div className="row justify-content-center table-responsive">
             <div className="text-center">
                 <h1 className="text-center">Search a Currency</h1>
                 <input 
@@ -28,7 +29,7 @@ function CryptoPrices(props) {
                     className="text-center"
                     onChange={event => setCryptoSearch(event.target.value)}
                 />
-             </div>
+            </div>
             <table className="table tablie-light table-hover">
                 <thead>
                     <tr>
@@ -67,6 +68,7 @@ function CryptoPrices(props) {
                     ))}
                 </tbody>
             </table>
+            { signedIn === false? <SignUpModal/>: null }
         </div>
     );
 }

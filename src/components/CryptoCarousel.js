@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import AliceCarousel from 'react-alice-carousel';
 import { Link } from 'react-router-dom';
 
@@ -6,7 +6,12 @@ function CryptoCarousel({coinData, newsData}) {
     /* Variables */
     const [topCrypto, setTopCrypto] = useState(coinData)
     const [topNews, setTopNews] = useState(newsData)
-
+    const [signedIn, setSignedIn] = useState(false)
+    useEffect(() => {
+        if (localStorage.getItem('token')){
+          setSignedIn(true)
+        }
+      }, []);
     // Adding commas to number ex. 1,000
     function integer(num){
         return parseInt((num)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
@@ -36,17 +41,29 @@ function CryptoCarousel({coinData, newsData}) {
         }
         }).slice(0,10).map((newsData) => {
             return (
-                <a style={{ textDecoration: 'none' , color: 'inherit'}}
-                    href={newsData.url}
-                    target="_blank"
-                    rel="noreferrer noopener">
-                    <img 
-                    src={newsData.image}
-                    alt={newsData.headline}
-                    height='80'
-                    style={{ marginBottom: 10}}/>
-                    <p >{newsData.headline}</p>
-                </a>
+                <div>
+                    { signedIn === false ?
+                    <Link style={{ textDecoration: 'none' , color: 'inherit'}} to='/news'>
+                        <img 
+                        src={newsData.image}
+                        alt={newsData.headline}
+                        height='80'
+                        style={{ marginBottom: 10}}/>
+                        <p >{newsData.headline}</p>
+                    </Link>
+                    :
+                        <a style={{ textDecoration: 'none' , color: 'inherit'}}
+                            href={newsData.url}
+                            target="_blank"
+                            rel="noreferrer noopener">
+                        <img 
+                            src={newsData.image}
+                            alt={newsData.headline}
+                            height='80'
+                            style={{ marginBottom: 10}}/>
+                        <p >{newsData.headline}</p>
+                    </a>}
+                </div>
             )
         })
 
@@ -73,6 +90,7 @@ function CryptoCarousel({coinData, newsData}) {
                     responsive={responsive}
                     autoPlay
                     items={coinItems}
+                disableButtonsControls
             />
             <Link style={{ textDecoration: 'none' , color: 'inherit'}} to='/news'>
                 <h2>Trending News</h2>
@@ -86,6 +104,7 @@ function CryptoCarousel({coinData, newsData}) {
                     responsive={responsive}
                     autoPlay
                     items={newsItems}
+                disableButtonsControls
             />
         </div>
     );

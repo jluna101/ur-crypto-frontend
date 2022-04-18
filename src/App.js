@@ -3,7 +3,6 @@ import CryptoNews from './components/CryptoNews';
 import CryptoPrices from './components/CryptoPrices';
 import Footer from './components/Footer';
 import Navbar from './components/Navbar';
-import CoinbaseTransactions from './components/CoinbaseTransactions';
 import { BrowserRouter as Router, Routes, Route, useNavigate } from 'react-router-dom'; 
 import Homepage from './components/Homepage';
 import SignIn from './components/SignIn';
@@ -31,7 +30,6 @@ function App() {
   const toggleTheme = () => {
     setTheme((current) => (current === 'light'? 'dark' : 'light'));
   }
-
   // Signout Handle
   const handleSignout = async (event) => {
     setSignedIn(false);
@@ -47,13 +45,11 @@ function App() {
         localStorage.removeItem('token');
         setSignedIn(false)
         alert('You have been successfully logged out');
-        
         navigate('/')
       }
     } catch (error){
       console.log(error)
     }
-    
   }
 
   // News API 
@@ -103,7 +99,6 @@ function App() {
         <Route path='/prices'element={<CryptoPrices coinData={cryptoData}/>}/>
         <Route path='/prices/:id' element={<CryptoDetails signedInData={signedIn} coinData={cryptoData}/>} />
         <Route path='/news' element={<CryptoNews dataForNews={newsData}/>}/> 
-        <Route path='/transactions' element={<CoinbaseTransactions signedIn={signedIn}/>}/> 
         <Route path='/signin' element={<SignIn handleSetSignedIn={handleSetSignedIn}/>}/>
         <Route path='/signup' element={<SignUp/>}/>
       </Routes>
