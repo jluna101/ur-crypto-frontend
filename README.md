@@ -3,7 +3,7 @@ This project was created with React, Bootstrap, and ChartJS
 
 ## Project Description:
 
-urCrypto is a platform specializing in up to data crypto currencies prices and news. 
+urCrypto is a platform providing the latest crypto currencies financial data and news. 
 
 On urCrypto users can view live analytics of their favorite crypto currencies and view the most trending news.. all just a click or tap away! 
 
@@ -18,8 +18,8 @@ On urCrypto users can view live analytics of their favorite crypto currencies an
 
 
 ## Api used:
-https://api.coinstats.app/public/v1/coins
-https://finnhub.io/api/v1
+- https://api.coinstats.app/public/v1/coins
+- https://finnhub.io/api/v1
 
 ## Deployed site:
 Netlify: https://urcrypto.netlify.app/
@@ -37,5 +37,5 @@ Please report any bugs on the issues tab of this repo with a short description o
 ### Future goals:
 
 - Add a chart that is continuously updating on the details page. 
-- Let users create a 'crypto watchlist' and these crypto are first to display and on the front page image carousel
-- Let users up or down vote news articles
+- Let users create a 'crypto watchlist' and these crypto are first to display and on the. front page image carousel.
+- Let users up or down vote news articles.
