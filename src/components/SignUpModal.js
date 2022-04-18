@@ -73,11 +73,11 @@ const SignUp = () => {
             <div className="container py-5 h-60">
                 <div className="row d-flex justify-content-center align-items-center h-100">
                     <div className="col-12 col-md-8 col-lg-6 col-xl-5">
-                        <div className="card bg-dark text-white shadow-lg" style={{borderRadius: '.5rem'}}>
-                            <div className="card-body p-5 text-center">
-                                <div className="mb-md-5 mt-md-4 pb-5">
+                        <div id='signUpSize' className="card bg-dark text-white shadow-lg" style={{borderRadius: '.5rem'}}>
+                            <div  className="card-body px-5 text-center">
+                                <div  className="md-5 md-2 pb-5">
                                     <h2 className="fw-bold mb-2 text-uppercase">Create an account</h2>
-                                    <p class="text-white-50 mb-5">Please fill out below for member access!</p>
+                                    <p class="text-white-50 mb-2">Please fill out below for member access!</p>
                                     <Form onSubmit={handleSignup}>
                                         <Form.Group className="form-outline form-white mb-4" controlId='username'>
                                             <Form.Label className='fw-bold mb-2'>Username</Form.Label>
