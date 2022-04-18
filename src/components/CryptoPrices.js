@@ -14,7 +14,6 @@ function CryptoPrices({coinData, theme}) {
             setSignedIn(true)
         }
     }, []);
-    console.log(coinData)
     // Adding commas to number ex. 1,000
     function integer(num){
         return parseInt((num)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
@@ -22,6 +21,8 @@ function CryptoPrices({coinData, theme}) {
     function numColor(num){
         return num < 0 ? <td className="text-success">{num}%</td>:<td className="text-danger">{num}%</td>
     }
+    function integerWithDecimal(num){
+        return parseFloat((num)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
     return (
         <div id={theme} className="row justify-content-center table-responsive">
             <div className="text-center">
@@ -56,13 +57,12 @@ function CryptoPrices({coinData, theme}) {
                             return element
                         }
                     }).slice(0,30).map((element, index) => (
-                            
                             <tr key={element.volume}>
                                 <td>&nbsp;</td>
                                 <td>{element.rank}</td>
                                 <td><img height='40'src={element.icon} alt={element.id}/></td>
                                 <td><Link style={{ textDecoration: 'none' }} to={`/prices/${element.id}`}>{element.symbol}</Link></td>
-                                <td>{(signedIn === false)? <div style={{ filter: 'blur(3px)', pointerEvents: 'none' }}>${integer(element.price)}</div>:<div>${integer(element.price)}</div>}</td>
+                                <td>{(signedIn === false)? <div style={{ filter: 'blur(3px)', pointerEvents: 'none' }}>${integerWithDecimal((element.price).toFixed(2))}</div>:<div>${integerWithDecimal((element.price).toFixed(2))}</div>}</td>
                                 <td>{numColor(element.priceChange1h)}</td>
                                 <td>{numColor(element.priceChange1d)}</td>
                                 <td>{numColor(element.priceChange1w)}</td>

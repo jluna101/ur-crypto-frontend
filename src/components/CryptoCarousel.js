@@ -20,7 +20,6 @@ function CryptoCarousel({coinData, newsData}) {
         if (element.price > 1){
             return element
         }
-
         }).slice(0,30).map((coinData) => {
             return (
                 <Link style={{ textDecoration: 'none' , color: 'inherit'}} to={`/prices/${coinData.name}`}>
