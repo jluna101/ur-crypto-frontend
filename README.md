@@ -1,70 +1,41 @@
-# Getting Started with Create React App
+# urCrypto
+This project was created with React, Bootstrap, and ChartJS
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Project Description:
 
-## Available Scripts
+urCrypto is a platform specializing in up to data crypto currencies prices and news. 
 
-In the project directory, you can run:
+On urCrypto users can view live analytics of their favorite crypto currencies and view the most trending news.. all just a click or tap away! 
 
-### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Screenshots:
+![Screen Shot 2022-04-18 at 9 25 10 AM](https://media.git.generalassemb.ly/user/41257/files/bf76a280-bef9-11ec-9c26-cc504c7f3ab1)
+![Screen Shot 2022-04-18 at 9 25 49 AM](https://media.git.generalassemb.ly/user/41257/files/bf76a280-bef9-11ec-8992-31f9050404b8)
+![Screen Shot 2022-04-18 at 9 26 03 AM](https://media.git.generalassemb.ly/user/41257/files/c00f3900-bef9-11ec-8298-4b58ff8a0c61)
+![Screen Shot 2022-04-18 at 9 26 24 AM](https://media.git.generalassemb.ly/user/41257/files/bf76a280-bef9-11ec-8af8-897de0368977)
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
+## Api used:
+https://api.coinstats.app/public/v1/coins
+https://finnhub.io/api/v1
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Deployed site:
+Netlify: https://urcrypto.netlify.app/
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Installation Instructions
 
-### `npm run eject`
+1. Fork and clone the repo via either SSH or HTTPS key.
+2. In terminal type: git clone [key]
+3. cd into your project directory and install dependencies with npm i
+4. Open the program locally type with npm start
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Please report any bugs on the issues tab of this repo with a short description of the bug detailing how you encounted it. 
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Future goals:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- Add a chart that is continuously updating on the details page. 
+- Let users create a 'crypto watchlist' and these crypto are first to display and on the front page image carousel
+- Let users up or down vote news articles
