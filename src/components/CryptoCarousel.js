@@ -31,6 +31,7 @@ function CryptoCarousel({coinData, newsData}) {
                     style={{ marginBottom: 10}}
                     />
                     <p>{coinData.name}: ${integer(coinData.price)}</p>
+
                 </Link>
                 )
         })

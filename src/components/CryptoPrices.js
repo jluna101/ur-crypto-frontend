@@ -2,20 +2,19 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import SignUpModal from './SignUpModal';
 
-function CryptoPrices(props) {
+function CryptoPrices({coinData}) {
     /* === Title Tag === */
     document.title = '| Prices'
     /* Variables */
-    const coinstat = props.coinData;
-    const [cryptoData, setCryptoData] = useState(coinstat)
+    const [cryptoData, setCryptoData] = useState(coinData)
     const [cryptoSearch, setCryptoSearch] = useState('')
     const [signedIn, setSignedIn] = useState(false)
     useEffect(() => {
         if (localStorage.getItem('token')){
-          setSignedIn(true)
+            setSignedIn(true)
         }
-      }, []);
-
+    }, []);
+    console.log(coinData)
     // Adding commas to number ex. 1,000
     function integer(num){
         return parseInt((num)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
@@ -62,7 +61,7 @@ function CryptoPrices(props) {
                                 <td>&nbsp;</td>
                                 <td>{element.rank}</td>
                                 <td><img height='40'src={element.icon} alt={element.id}/></td>
-                                <td><Link style={{ textDecoration: 'none' }} to={`/prices/${element.name}`}>{element.symbol}</Link></td>
+                                <td><Link style={{ textDecoration: 'none' }} to={`/prices/${element.id}`}>{element.symbol}</Link></td>
                                 <td>{(signedIn === false)? <div style={{ filter: 'blur(3px)', pointerEvents: 'none' }}>${integer(element.price)}</div>:<div>${integer(element.price)}</div>}</td>
                                 <td>{numColor(element.priceChange1h)}</td>
                                 <td>{numColor(element.priceChange1d)}</td>
