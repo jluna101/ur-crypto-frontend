@@ -40,6 +40,10 @@ function CryptoDetails(props) {
             <table className="table tablie-light table-hover">
                 <thead>
                     <tr>
+                        <th>Ranking</th>
+                        <th>{(coin.rank)}</th>
+                    </tr>
+                    <tr>
                         <th>1 Hour Change</th>
                         {numColor(coin.priceChange1h)}
                     </tr>

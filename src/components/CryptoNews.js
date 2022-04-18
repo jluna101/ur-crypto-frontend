@@ -29,14 +29,14 @@ function CryptoNews({dataForNews}) {
                         <div key={element.id} className="w-50 p-3" >
                             { signedIn === false ? 
                                 <div style={{ filter: 'blur(2.5px)', pointerEvents: 'none' }}>
-                                    <img className="img-fluid" src={element.image} alt={element.headline} />
+                                    <img className="img-fluid shadow-lg" src={element.image} alt={element.headline} style={{borderRadius: 5}}/>
                                     <p>{element.source}</p>
                                     <h2>{element.headline}</h2>
                                     <p>{datetime((element.datetime)+'100')}</p>
                                 </div>
                             :
                             <a style={{ textDecoration: 'none' , color: 'inherit'}} href={element.url} target="_blank" rel="noreferrer noopener" >
-                                <img className="img-fluid" src={element.image} alt={element.headline} />
+                                <img className="img-fluid shadow-lg" src={element.image} alt={element.headline} />
                                 <p>{element.source}</p>
                                 <h2>{element.headline}</h2>
                                 <p>{datetime((element.datetime)+'100')}</p>

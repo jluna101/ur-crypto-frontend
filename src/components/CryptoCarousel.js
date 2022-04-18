@@ -49,7 +49,8 @@ function CryptoCarousel({coinData, newsData}) {
                         src={newsData.image}
                         alt={newsData.headline}
                         height='80'
-                        style={{ marginBottom: 10}}/>
+                        className='shadow-lg'
+                        style={{ marginBottom: 10, borderRadius: 5}}/>
                         <p >{newsData.headline}</p>
                     </Link>
                     :
@@ -61,6 +62,7 @@ function CryptoCarousel({coinData, newsData}) {
                             src={newsData.image}
                             alt={newsData.headline}
                             height='80'
+                            className='shadow-lg'
                             style={{ marginBottom: 10}}/>
                         <p >{newsData.headline}</p>
                     </a>}

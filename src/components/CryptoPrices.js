@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import SignUpModal from './SignUpModal';
 
-function CryptoPrices({coinData}) {
+function CryptoPrices({coinData, theme}) {
     /* === Title Tag === */
     document.title = '| Prices'
     /* Variables */
@@ -23,7 +23,7 @@ function CryptoPrices({coinData}) {
         return num < 0 ? <td className="text-success">{num}%</td>:<td className="text-danger">{num}%</td>
     }
     return (
-        <div className="row justify-content-center table-responsive">
+        <div id={theme} className="row justify-content-center table-responsive">
             <div className="text-center">
                 <h1 className="text-center">Search a Currency</h1>
                 <input 
@@ -33,7 +33,7 @@ function CryptoPrices({coinData}) {
                     onChange={event => setCryptoSearch(event.target.value)}
                 />
             </div>
-            <table className="table tablie-light table-hover">
+            <table id={theme} className="table tablie-light table-hover">
                 <thead>
                     <tr>
                         <th>&nbsp;</th>
