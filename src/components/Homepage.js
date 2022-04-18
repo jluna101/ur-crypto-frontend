@@ -32,11 +32,10 @@ function Homepage({signedIn, coinData, newsData, theme}) {
 
     return (
         <div className="text-center">
-            <h1 className='primary'>Welcome to urCrypto!</h1>
-            <h3>The future is here</h3>
-            <p>With over 300 million crypto users worldwide urCrypto has you covered to stay ahead!</p>
+            <h1 className='primary mb-5 h3'>Welcome to urCrypto</h1>
+            <p className='mb-5 lead'>With 300 million+ overall crypto users worldwide. urCrypto has you covered to stay ahead!</p>
             <CryptoCarousel coinData={coinData} theme={theme} newsData={newsData} />
-            <h2>Number of Crypto Users by Exchange</h2>
+            <h2 className='mb-5 mt-5'>Number of Crypto Users by Exchange</h2>
             <div>
                 <Bar style={{ marginLeft: 150, marginRight: 150}} options={coinbaseChartOptions} data={newCoinbaseData} />
                 <Bar style={{ marginLeft: 150, marginRight: 150}}  options={binanceChartOptions} data={newBinanceData} />

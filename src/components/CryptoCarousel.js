@@ -81,7 +81,7 @@ function CryptoCarousel({coinData, newsData, theme}) {
     return (
         <div style={{ textDecoration: 'none' , color: 'inherit'}} >
             <Link style={{ textDecoration: 'none' , color: 'inherit'}} to='/prices'>
-                <h2>Live Crypto Prices </h2>
+                <h2 className='mt-5 mb-4'>Live Crypto Prices </h2>
             </Link>
             <AliceCarousel 
                  mouseTracking
@@ -95,7 +95,7 @@ function CryptoCarousel({coinData, newsData, theme}) {
                 disableButtonsControls
             />
             <Link style={{ textDecoration: 'none' , color: 'inherit'}} to='/news'>
-                <h2>Trending News</h2>
+                <h2 className='mt-3 mb-5'>Trending News</h2>
             </Link>
             <AliceCarousel 
                 mouseTracking
