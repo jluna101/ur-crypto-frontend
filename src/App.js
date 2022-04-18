@@ -95,7 +95,7 @@ function App() {
 
   return (
     <div id={theme}>
-      <Navbar signedIn={signedIn} theme={theme} setTheme={setTheme} toggleTheme={toggleTheme} userInfo={userInfo} handleSignout={handleSignout}/>
+      <Navbar signedIn={signedIn} theme={theme} toggleTheme={toggleTheme} userInfo={userInfo} handleSignout={handleSignout}/>
       <Routes>
         <Route path='/'element={<Homepage coinData={cryptoData} theme={theme} newsData={newsData} signedIn={signedIn}/>}
         />

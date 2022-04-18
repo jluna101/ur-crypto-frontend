@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import AliceCarousel from 'react-alice-carousel';
 import { Link } from 'react-router-dom';
 
-function CryptoCarousel({coinData, newsData}) {
+function CryptoCarousel({coinData, newsData, theme}) {
     /* Variables */
     const [topCrypto, setTopCrypto] = useState(coinData)
     const [topNews, setTopNews] = useState(newsData)
@@ -29,7 +29,7 @@ function CryptoCarousel({coinData, newsData}) {
                     height='80'
                     style={{ marginBottom: 10}}
                     />
-                    <p>{coinData.name}: ${integer(coinData.price)}</p>
+                    <p id={theme} >{coinData.name}: ${integer(coinData.price)}</p>
 
                 </Link>
                 )
@@ -41,9 +41,9 @@ function CryptoCarousel({coinData, newsData}) {
         }
         }).slice(0,10).map((newsData) => {
             return (
-                <div>
+                <div id={theme} >
                     { signedIn === false ?
-                    <Link style={{ textDecoration: 'none' , color: 'inherit'}} to='/news'>
+                    <Link id={theme} style={{ textDecoration: 'none' , color: 'inherit'}} to='/news'>
                         <img 
                         src={newsData.image}
                         alt={newsData.headline}
@@ -63,7 +63,7 @@ function CryptoCarousel({coinData, newsData}) {
                             height='80'
                             className='shadow-lg'
                             style={{ marginBottom: 10}}/>
-                        <p >{newsData.headline}</p>
+                        <p id={theme}>{newsData.headline}</p>
                     </a>}
                 </div>
             )

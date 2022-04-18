@@ -35,7 +35,7 @@ function Homepage({signedIn, coinData, newsData, theme}) {
             <h1 className='primary'>Welcome to urCrypto!</h1>
             <h3>The future is here</h3>
             <p>With over 300 million crypto users worldwide urCrypto has you covered to stay ahead!</p>
-            <CryptoCarousel coinData={coinData} newsData={newsData} />
+            <CryptoCarousel coinData={coinData} theme={theme} newsData={newsData} />
             <h2>Number of Crypto Users by Exchange</h2>
             <div>
                 <Bar style={{ marginLeft: 150, marginRight: 150}} options={coinbaseChartOptions} data={newCoinbaseData} />
