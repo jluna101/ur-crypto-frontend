@@ -51,11 +51,11 @@ function CryptoPrices(props) {
                         } else if (element.name.toLowerCase().includes(cryptoSearch.toLowerCase())){
                             return element
                         }
-                    }).slice(0,10).map((element, index) => (
+                    }).slice(0,30).map((element, index) => (
                             
                             <tr key={element.volume}>
                                 <td>{element.rank}</td>
-                                <td><img src={element.icon} alt={element.id}/></td>
+                                <td><img height='40'src={element.icon} alt={element.id}/></td>
                                 <td><Link style={{ textDecoration: 'none' }} to={`/prices/${element.name}`}>{element.symbol}</Link></td>
                                 <td>{(signedIn === false)? <div style={{ filter: 'blur(3px)', pointerEvents: 'none' }}>${integer(element.price)}</div>:<div>${integer(element.price)}</div>}</td>
                                 <td>{element.priceChange1h}%</td>

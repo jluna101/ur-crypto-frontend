@@ -98,10 +98,9 @@
 } */
 #signUp {
   position: fixed;
-  margin-top: 200px;
-  max-width: 300px;
+  margin-top: 50px;
+  height: 100px;
   /* width: 30px; */
   /* height: 30px; */
   opacity: 0.95;
-  background-color: grey;
 }

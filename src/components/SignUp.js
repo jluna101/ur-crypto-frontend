@@ -76,12 +76,11 @@ const SignUp = () => {
                     <div className="card bg-dark text-white" style={{borderRadius: '.5rem'}}>
                         <div className="card-body p-5 text-center">
                             <div className="mb-md-5 mt-md-4 pb-5">
-
-
-                                <h2 className="fw-bold mb-2 text-uppercase">Create an account!</h2>
+                                <h2 className="fw-bold mb-2 text-uppercase">Create an account</h2>
+                                <p class="text-white-50 mb-5">Please fill out below for exclusive access!</p>
                                 <Form onSubmit={handleSignup}>
-                                    <Form.Group controlId='username'>
-                                        <Form.Label>Username</Form.Label>
+                                    <Form.Group className="form-outline form-white mb-4" controlId='username'>
+                                        <Form.Label className='fw-bold mb-2'>Username</Form.Label>
                                         <Form.Control
                                             required
                                             autoFocus
@@ -91,8 +90,8 @@ const SignUp = () => {
                                             onChange={handleChange}
                                         />
                                     </Form.Group>
-                                    <Form.Group controlId='email'>
-                                        <Form.Label>Email</Form.Label>
+                                    <Form.Group className="form-outline form-white mb-4" controlId='email'>
+                                        <Form.Label className='fw-bold mb-2'>Email</Form.Label>
                                         <Form.Control
                                             required
                                             type='email'
@@ -101,8 +100,8 @@ const SignUp = () => {
                                             onChange={handleChange}
                                         />
                                     </Form.Group>
-                                    <Form.Group controlId='password'>
-                                        <Form.Label>Password</Form.Label>
+                                    <Form.Group className="form-outline form-white mb-4" controlId='password'>
+                                        <Form.Label className='fw-bold mb-2'>Password</Form.Label>
                                         <Form.Control
                                             required
                                             type='password'
@@ -111,8 +110,8 @@ const SignUp = () => {
                                             onChange={handleChange}
                                         />
                                     </Form.Group>
-                                    <Form.Group controlId='re_password'>
-                                        <Form.Label>Re-enter Password</Form.Label>
+                                    <Form.Group className="form-outline form-white mb-4" controlId='re_password'>
+                                        <Form.Label className='fw-bold mb-2'>Re-enter Password</Form.Label>
                                         <Form.Control
                                             required
                                             type='password'
@@ -123,6 +122,10 @@ const SignUp = () => {
                                         />
                                     </Form.Group>
                                     <Button type='submit'>Sign up</Button>
+                                    <div>
+                                        <p className="mb-0">Already have an account? <Link style={{ textDecoration: 'none'}} to='/signin' className="text-primary-50 fw-bold">Signin</Link>
+                                        </p>
+                                    </div>
                                     {error && <Alert variant='danger'>Passwords must match!</Alert>}
                                     {success && (
                                         <Alert variant='success' className='mt-5'>
