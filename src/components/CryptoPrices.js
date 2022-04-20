@@ -63,9 +63,9 @@ function CryptoPrices({coinData, theme}) {
                                 <td><img height='40'src={element.icon} alt={element.id}/></td>
                                 <td><Link style={{ textDecoration: 'none' }} to={`/prices/${element.id}`}>{element.symbol}</Link></td>
                                 <td>{(signedIn === false)? <div style={{ filter: 'blur(3px)', pointerEvents: 'none' }}>${integerWithDecimal((element.price).toFixed(2))}</div>:<div>${integerWithDecimal((element.price).toFixed(2))}</div>}</td>
-                                <td>{numColor(element.priceChange1h)}</td>
-                                <td>{numColor(element.priceChange1d)}</td>
-                                <td>{numColor(element.priceChange1w)}</td>
+                                {numColor(element.priceChange1h)}
+                                {numColor(element.priceChange1d)}
+                                {numColor(element.priceChange1w)}
                                 <td>{(signedIn === false)? <div style={{ filter: 'blur(3px)', pointerEvents: 'none' }}>${integer(element.marketCap)}</div>:<div>${integer(element.marketCap)}</div>}</td>
                                 <td>{(signedIn === false)? <div style={{ filter: 'blur(3px)', pointerEvents: 'none' }}>${integer(element.volume)}</div>:<div>${integer(element.volume)}</div>}</td>
                             </tr>

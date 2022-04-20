@@ -77,7 +77,7 @@ const SignUp = () => {
                         <div className="card-body p-5 text-center">
                             <div className="mb-md-5 mt-md-4 pb-5">
                                 <h2 className="fw-bold mb-2 text-uppercase">Create an account</h2>
-                                <p class="text-white-50 mb-5">Please fill out below for exclusive access!</p>
+                                <p className="text-white-50 mb-5">Please fill out below for exclusive access!</p>
                                 <Form onSubmit={handleSignup}>
                                     <Form.Group className="form-outline form-white mb-4" controlId='username'>
                                         <Form.Label className='fw-bold mb-2'>Username</Form.Label>
