@@ -20,7 +20,7 @@ function CryptoCarousel({coinData, newsData, theme}) {
         if (element.price > 1){
             return element
         }
-        }).slice(0,30).map((coinData) => {
+        }).slice(0,10).map((coinData) => {
             return (
                 <Link style={{ textDecoration: 'none' , color: 'inherit'}} to={`/prices/${coinData.name}`}>
                     <img 
@@ -39,7 +39,7 @@ function CryptoCarousel({coinData, newsData, theme}) {
         if (element.image !== 'https://data.bloomberglp.com/company/sites/2/2019/01/logobbg-wht.png'){
             return element
         }
-        }).slice(0,10).map((newsData) => {
+        }).slice(0,5).map((newsData) => {
             return (
                 <div id={theme} >
                     { signedIn === false ?

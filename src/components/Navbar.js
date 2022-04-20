@@ -11,7 +11,7 @@ function Navbar({signedIn, handleSignout, userInfo, theme, toggleTheme}) {
     return (
         <nav className="navbar navbar-dark bg-dark">
             <div className="container-fluid ">
-            <Link to='/' className="text-decoration-none navbar-brand">urCrypto</Link>
+            <Link to='/homepage' className="text-decoration-none navbar-brand">urCrypto</Link>
             <Link to='/prices' className="text-decoration-none navbar-brand">Prices</Link>
             <Link to='/news' className="text-decoration-none navbar-brand">News</Link>
             {userInfo !== null ? (

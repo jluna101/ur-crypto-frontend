@@ -27,7 +27,6 @@ function App() {
   };
   let navigate = useNavigate();
   const [userInfo, setUserInfo] = useState(null);
-
   // Light & Dark mode toggle
   const toggleTheme = () => {
     setTheme((current) => (current === 'light'? 'dark' : 'light'));
@@ -97,12 +96,12 @@ function App() {
     <div id={theme}>
       <Navbar signedIn={signedIn} theme={theme} toggleTheme={toggleTheme} userInfo={userInfo} handleSignout={handleSignout}/>
       <Routes>
-        <Route path='/'element={<Homepage coinData={cryptoData} theme={theme} newsData={newsData} signedIn={signedIn}/>}
+        <Route path='/homepage'element={<Homepage coinData={cryptoData} theme={theme} newsData={newsData} signedIn={signedIn}/>}
         />
         <Route path='/prices'element={<CryptoPrices theme={theme} coinData={cryptoData}/>}/>
         <Route path='/prices/:id' element={<CryptoDetails signedInData={signedIn} coinData={cryptoData}/>} />
         <Route path='/news' element={<CryptoNews dataForNews={newsData}/>}/> 
-        <Route path='/signin' element={<SignIn handleSetSignedIn={handleSetSignedIn}/>}/>
+        <Route path='/' element={<SignIn handleSetSignedIn={handleSetSignedIn}/>}/>
         <Route path='/signup' element={<SignUp/>}/>
         <Route path='/styles'element={<Styles/>}/>
       </Routes>
