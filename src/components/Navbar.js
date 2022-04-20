@@ -23,7 +23,7 @@ function Navbar({signedIn, handleSignout, userInfo, theme, toggleTheme}) {
                 <><Nav.Link className="text-decoration-none" onClick={handleSignout}>Signout</Nav.Link></>
                 ):( 
                 <>
-                    <Link to='/signin' className="text-decoration-none navbar-brand">Sign-in</Link>
+                    <Link to='/' className="text-decoration-none navbar-brand">Sign-in</Link>
                     <Link to='/signup' className="text-decoration-none navbar-brand">Sign-up</Link>
                 </>
                 )}
