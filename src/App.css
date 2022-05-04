@@ -38,13 +38,24 @@
 }
 
 #dark {
-  background-color: black;
+  background-color: #222;
   color: white;
   text-decoration-color: white;
 
 }
 #light {
   background-color: white;
+  color: black;
+  text-decoration-color: white;
+}
+
+
+#darkNav {
+  color: white;
+  text-decoration-color: white;
+
+}
+#lightNav {
   color: black;
   text-decoration-color: white;
 }
