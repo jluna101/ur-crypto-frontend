@@ -67,3 +67,9 @@
   position: fixed;
   opacity: 0.95;
 }
+.hover{
+
+}
+.hover:hover {
+  opacity: .8;
+}

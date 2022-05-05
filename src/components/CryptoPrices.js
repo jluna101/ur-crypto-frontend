@@ -17,20 +17,21 @@ function CryptoPrices({coinData, theme}) {
     // Adding commas to number ex. 1,000
     function integer(num){
         return parseInt((num)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
-    // Turns integer to green or red depending on whether it's positive or negative
+    // Turns integer green/red depending on whether it's positive or negative
     function numColor(num){
         return num < 0 ? <td className="text-success">{num}%</td>:<td className="text-danger">{num}%</td>
     }
+    // Add decimal eevry third place to integers 
     function integerWithDecimal(num){
         return parseFloat((num)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
     return (
         <div id={theme} className="row justify-content-center table-responsive">
             <div className="text-center">
-                <h1 className="text-center">Search a Currency</h1>
+                <h1 className="text-center py-5">Search a Currency</h1>
                 <input 
                     type="text"
-                    placeholder='Search..'
-                    className="text-center"
+                    placeholder='Enter crypto here..'
+                    className="text-center mb-5"
                     onChange={event => setCryptoSearch(event.target.value)}
                 />
             </div>

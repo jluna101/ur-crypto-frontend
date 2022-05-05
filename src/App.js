@@ -13,6 +13,7 @@ import CryptoDetails from './components/CryptoDetails';
 import Switch from 'react-js-switch';
 import Styles from './components/Styles';
 import CryptoCarousel from './components/CryptoCarousel';
+import AliceCarousel from 'react-alice-carousel';
 
 function App() {
   const [theme, setTheme] = useState('light')
@@ -96,7 +97,8 @@ function App() {
     <div id={theme}>
       <Navbar signedIn={signedIn} theme={theme} toggleTheme={toggleTheme} userInfo={userInfo} handleSignout={handleSignout}/>
       <Routes>
-        <Route path='/homepage'element={<Homepage coinData={cryptoData} theme={theme} newsData={newsData} signedIn={signedIn}/>}
+        <Route path='/homepage'element={<Homepage coinData={cryptoData} theme={theme} newsData={newsData} signedIn={signedIn}/>
+      }
         />
         <Route path='/prices'element={<CryptoPrices theme={theme} coinData={cryptoData}/>}/>
         <Route path='/prices/:id' element={<CryptoDetails signedInData={signedIn} coinData={cryptoData}/>} />

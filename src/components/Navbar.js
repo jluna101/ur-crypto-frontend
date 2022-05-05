@@ -30,9 +30,11 @@ function Navbar({signedIn, handleSignout, userInfo, theme, toggleTheme}) {
                     <Link to='/' className="text-decoration-none text-black">Sign-in</Link>
                     <Link to='/signup' className="text-decoration-none text-black"><Button variant='primary'>Sign-up</Button></Link>
                 </>)}
-                <Switch Change={toggleTheme} content='word'/>
+                {/* <Switch Change={toggleTheme}/> */}
             </div>
+            
         </nav>
+
         </div>
     );
 }

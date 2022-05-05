@@ -9,32 +9,39 @@ function CryptoCarousel({coinData, newsData, theme}) {
     const [signedIn, setSignedIn] = useState(false)
     useEffect(() => {
         if (localStorage.getItem('token')){
-          setSignedIn(true)
+        setSignedIn(true)
         }
-      }, []);
+    }, []);
     // Adding commas to number ex. 1,000
     function integer(num){
         return parseInt((num)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
+    // Turns integer green/red depending on whether it's positive or negative
+    function numColor(num){
+        return num > 0 ? <p className="text-success pt-1">{num}%</p>:<p className="text-danger pt-1">{num}%</p>
+    }
     // Coins to display on carousel
     const coinItems = topCrypto.filter((element) => {
-        if (element.price > 1){
+        if (element.priceChange1d > .1){
             return element
         }
         }).slice(0,10).map((coinData) => {
             return (
-                <Link style={{ textDecoration: 'none' , color: 'inherit'}} to={`/prices/${coinData.name}`}>
+                <Link id='link' to={`/prices/${coinData.name}`}>
                     <img 
                     src={coinData.icon}
                     alt={coinData.name}
                     height='80'
                     style={{ marginBottom: 10}}
+                    className='hover'
                     />
-                    <p id={theme} >{coinData.name}: ${integer(coinData.price)}</p>
+                    <p id={theme} className='hover text-muted'>{coinData.symbol}{numColor(integer(coinData.priceChange1d))}</p>
+                    
+                    
 
                 </Link>
                 )
         })
-    // News to display on carousel
+    // News displaying on carousel - filter generic images from bloomberg
     const newsItems = topNews.filter((element) => {
         if (element.image !== 'https://data.bloomberglp.com/company/sites/2/2019/01/logobbg-wht.png'){
             return element
@@ -43,7 +50,7 @@ function CryptoCarousel({coinData, newsData, theme}) {
             return (
                 <div id={theme} >
                     { signedIn === false ?
-                    <Link id={theme} style={{ textDecoration: 'none' , color: 'inherit'}} to='/news'>
+                    <Link id='link' to='/news'>
                         <img 
                         src={newsData.image}
                         alt={newsData.headline}
@@ -53,7 +60,7 @@ function CryptoCarousel({coinData, newsData, theme}) {
                         <p >{newsData.headline}</p>
                     </Link>
                     :
-                        <a style={{ textDecoration: 'none' , color: 'inherit'}}
+                        <a id='link'
                             href={newsData.url}
                             target="_blank"
                             rel="noreferrer noopener">
@@ -61,9 +68,9 @@ function CryptoCarousel({coinData, newsData, theme}) {
                             src={newsData.image}
                             alt={newsData.headline}
                             height='80'
-                            className='shadow-lg'
+                            className='shadow-lg hover'
                             style={{ marginBottom: 10}}/>
-                        <p id={theme}>{newsData.headline}</p>
+                        <p id={theme} className='hover text-muted px-2'>{newsData.headline}</p>
                     </a>}
                 </div>
             )
@@ -79,10 +86,13 @@ function CryptoCarousel({coinData, newsData, theme}) {
     };
 
     return (
-        <div style={{ textDecoration: 'none' , color: 'inherit'}} >
-            <Link style={{ textDecoration: 'none' , color: 'inherit'}} to='/prices'>
-                <h2 id={theme} className='mt-5 mb-4'>Live Crypto Prices </h2>
+        <div>
+            <h2 id={theme} className='mt-5 hover'>24hr Crypto Price Change </h2>
+            <p className='mb-5'>For additional financial metrics&nbsp;
+            <Link to='/prices' style={{textDecoration: 'none'}}>
+                read more
             </Link>
+            .</p>
             <AliceCarousel 
                  mouseTracking
                  infinite
@@ -93,10 +103,15 @@ function CryptoCarousel({coinData, newsData, theme}) {
                     autoPlay
                     items={coinItems}
                 disableButtonsControls
+                className='hover'
             />
-            <Link style={{ textDecoration: 'none' , color: 'inherit'}} to='/news'>
-                <h2 id={theme} className='mt-3 mb-5'>Trending News</h2>
-            </Link>
+                <h2 id={theme} className='mt-5 hover'>Trending News</h2>
+                <p className='mb-5'>Be the first to see trending news by clicking&nbsp;
+                    <Link style={{textDecoration: 'none'}} to='/news'>
+                    here
+                    </Link>
+                    .</p>
+            
             <AliceCarousel 
                 mouseTracking
                 infinite
@@ -107,6 +122,7 @@ function CryptoCarousel({coinData, newsData, theme}) {
                     autoPlay
                     items={newsItems}
                 disableButtonsControls
+                className='hover'
             />
         </div>
     );

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { 
     Chart as ChartJS,
     CategoryScale,
@@ -22,6 +22,7 @@ ChartJS.register(
     Legend,
 )
 function Homepage({signedIn, coinData, newsData, theme}) {
+    console.log(coinData)
     /* === Title Tag === */
     document.title = '| Homepage'
     /* Variables */
@@ -29,10 +30,9 @@ function Homepage({signedIn, coinData, newsData, theme}) {
     const [coinbaseChartOptions, setCoinbaseChartOptions] = useState(coinbaseData[1]);
     const [newBinanceData, setNewBinanceData] = useState(binanceData[0])
     const [binanceChartOptions, setBinanceChartOptions] = useState(binanceData[1]);
-
     return (
         <div className="text-center">
-            <h1 className='primary mb-5 h3'>Welcome to urCrypto</h1>
+            <h1 className='primary my-5 h1'>Welcome to urCrypto</h1>
             <p className='mb-5 lead'>With 300 million+ overall crypto users worldwide. urCrypto has you covered to stay ahead!</p>
             <CryptoCarousel coinData={coinData} theme={theme} newsData={newsData} />
             <h2 className='mb-5 mt-5'>Number of Crypto Users by Exchange</h2>
