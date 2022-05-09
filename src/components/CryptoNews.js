@@ -19,7 +19,6 @@ function CryptoNews({dataForNews}) {
       }, []);
     return (
         <section className="section gray-bg" id="blog">
-
         <div className="row justify-content-center mx-2 px-5" >
             <h1 className="section-title text-center py-5">Latest Crypto News</h1>
             {newsData.filter((element) => {
