@@ -78,7 +78,7 @@ function Homepage({signedIn, setSignedIn, coinData, newsData, theme}) {
                             src={newsData.image}
                             alt={newsData.headline}
                             height='80'
-                            className='shadow-lg hover'
+                            className='shadow hover rounded'
                             style={{ marginBottom: 10}}/>
                         <p id={theme} className='hover text-muted px-2'>{newsData.headline}</p>
                     </a>}
@@ -104,9 +104,12 @@ function Homepage({signedIn, setSignedIn, coinData, newsData, theme}) {
                 </Link>
                 )
         })
+
+
+
     return (
         <div className="text-center">
-            <h1 className='primary my-5 h1'>Welcome to urCrypto</h1>
+            <h1 className='primary mt-5 my-2 h1'>Welcome to urCrypto</h1>
             <p className='mb-5 lead'>With 300 million+ overall crypto users worldwide. urCrypto has you covered to stay ahead!</p>
             <h2 id={theme} className='mt-5 hover'>24hr Crypto Price Change </h2>
             <p className='mb-5'>For additional financial metrics&nbsp;
@@ -146,8 +149,8 @@ function Homepage({signedIn, setSignedIn, coinData, newsData, theme}) {
             />
             <h2 className='mb-5 mt-5'>Number of Crypto Users by Exchange</h2>
             <div>
-                <Bar style={{ marginLeft: 150, marginRight: 150}} options={coinbaseChartOptions} data={newCoinbaseData} />
-                <Bar style={{ marginLeft: 150, marginRight: 150}}  options={binanceChartOptions} data={newBinanceData} />
+                <Bar  className='w-75 mx-auto' options={coinbaseChartOptions} data={newCoinbaseData} />
+                <Bar className='w-75 mx-auto'  options={binanceChartOptions} data={newBinanceData} />
             </div>
         </div>
     );

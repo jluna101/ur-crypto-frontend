@@ -19,7 +19,7 @@ function CryptoPrices({coinData, theme}) {
         return parseInt((num)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
     // Turns integer green/red depending on whether it's positive or negative
     function numColor(num){
-        return num < 0 ? <td className="text-success">{num}%</td>:<td className="text-danger">{num}%</td>
+        return num < 0 ? <td className="text-danger">{num}%</td>:<td className="text-success">{num}%</td>
     }
     // Add decimal eevry third place to integers 
     function integerWithDecimal(num){
